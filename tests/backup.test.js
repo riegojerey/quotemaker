@@ -80,3 +80,40 @@ test('replace keeps my own name and signature even if the file carries someone e
   empty.settings.preparer = { name: '', title: '', signature: null };
   assert.equal(mergeBackup(empty, { catalogue: [], services: [], tiers: [], settings: { preparer: { name: 'Other' } } }, 'replace').settings.preparer.name, 'Other');
 });
+
+const base = extra => JSON.stringify({ app: 'quotemaker', catalogue: [], services: [], tiers: [], ...extra });
+
+test('restored data is repaired into the shapes the app expects', () => {
+  const b = parseBackup(base({
+    catalogue: [{ id: 'a', name: 'A' }],
+    services: [{ id: 's', title: 'S', payItems: [{ id: 'p' }] }],
+    tiers: [{ id: 't', name: 'T' }],
+    settings: { company: { name: 'X', address: 'Line 1\nLine 2' }, paymentTerms: 'oops', cpOcmDefault: 'abc' },
+    quotes: [{ id: 'q', services: [{ serviceId: 's', title: 'S', payItems: [{ id: 'p' }] }] }],
+  }));
+  assert.deepEqual(b.catalogue[0].variants, []);
+  assert.deepEqual(b.services[0].payItems[0].lines, []);
+  assert.deepEqual(b.services[0].payItems[0].headings, { material: 'MATERIALS', labor: 'LABOR', equipment: 'EQUIPMENT' });
+  assert.deepEqual(b.tiers[0].serviceIds, []);
+  assert.deepEqual(b.settings.company.address, ['Line 1', 'Line 2']);
+  // invalid settings are dropped (so Replace keeps my current value), never filled with defaults
+  assert.ok(!('paymentTerms' in b.settings));
+  assert.ok(!('cpOcmDefault' in b.settings));
+  assert.ok(!('bank' in b.settings));
+  assert.deepEqual(b.quotes[0].services[0].payItems[0].lines, []);
+  assert.deepEqual(b.quotes[0].client, { owner: '', address: '', project: '', email: '' });
+  assert.ok(Array.isArray(b.quotes[0].paymentTerms));
+});
+
+test('only embedded PNG/JPEG signatures survive a restore', () => {
+  const sig = s => ({ settings: { preparer: { name: 'A', signature: s } }, quotes: [{ id: 'q', preparer: { name: 'A', signature: s } }] });
+  const ok = 'data:image/png;base64,iVBORw0KGgo=';
+  let b = parseBackup(base(sig(ok)));
+  assert.equal(b.settings.preparer.signature, ok);
+  assert.equal(b.quotes[0].preparer.signature, ok);
+  for (const bad of ['https://evil.example/pixel.png', 'data:image/svg+xml;base64,PHN2Zz4=', 'javascript:alert(1)', 42]) {
+    b = parseBackup(base(sig(bad)));
+    assert.equal(b.settings.preparer.signature, null, String(bad));
+    assert.equal(b.quotes[0].preparer.signature, null, String(bad));
+  }
+});

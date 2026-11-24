@@ -11,8 +11,6 @@ export function render(main, ctx, id) {
   if (!stored) { main.innerHTML = '<div class="card">Quote not found. <a href="#/quotes">Back to quotes</a></div>'; return; }
   const q = structuredClone(stored); // one object for the whole view: inputs are bound to it
   const { services, catalogue, settings } = ctx.data;
-  // Quote made before the preparer set up Settings: take the current name and signature.
-  if (!q.preparer?.name && settings.preparer?.name) q.preparer = structuredClone(settings.preparer);
   const tiers = [...ctx.data.tiers].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
   let status;
@@ -28,6 +26,7 @@ export function render(main, ctx, id) {
     <div class="spread"><h1>Quote <span class="tag" data-tier-label>${esc(q.tierName)}</span></h1><a href="#/quotes">← All quotes</a></div>
     <section class="card" data-client>
       <h2>Client &amp; project</h2>
+      <div class="row" style="margin-bottom:10px" data-prepared></div>
       <div class="cols">
         <label class="field"><span>Contract code</span><div class="row" style="flex-wrap:nowrap">
           <input data-path="code" value="${esc(q.code)}"><button class="ghost" data-suggest title="Suggest from date and owner">Suggest</button></div></label>
@@ -81,6 +80,23 @@ export function render(main, ctx, id) {
     }
     changed();
   });
+  // Prepared by: kept as saved on the quote; switching to the current Settings identity is explicit.
+  const prepared = client.querySelector('[data-prepared]');
+  const drawPrepared = () => {
+    const mine = settings.preparer || {};
+    const same = mine.name === q.preparer?.name && mine.signature === q.preparer?.signature;
+    prepared.innerHTML = `<span class="muted">Prepared by:</span> <b>${esc(q.preparer?.name) || '<span class="bad">nobody yet</span>'}</b>
+      ${q.preparer?.signature ? '<span class="tag">signed</span>' : ''}
+      ${mine.name && !same ? '<button class="ghost" data-use-mine>Use my name &amp; signature</button>' : ''}
+      ${mine.name ? '' : '<a href="#/settings">Set up your name &amp; signature</a>'}`;
+  };
+  drawPrepared();
+  prepared.addEventListener('click', e => {
+    if (!e.target.closest('[data-use-mine]')) return;
+    q.preparer = structuredClone(settings.preparer);
+    drawPrepared();
+    changed();
+  });
   client.querySelector('[data-suggest]').onclick = () => {
     q.code = suggestCode(q.date, q.client.owner);
     client.querySelector('[data-path="code"]').value = q.code;
@@ -131,13 +147,22 @@ export function render(main, ctx, id) {
   // ---------- service cards ----------
   const svcEl = main.querySelector('[data-services]');
   const open = new Set();
+  // Options show today's catalogue; the selected one shows what the quote saved (its price may be older).
+  const variantOptions = (item, l) => {
+    const saved = `${l.variantLabel ? `${l.variantLabel} · ` : ''}saved ${money(l.price)}`;
+    const current = item.variants.some(v => v.id === l.variantId);
+    return (current ? '' : `<option value="" selected>${esc(saved)} (no longer in catalogue)</option>`) + item.variants.map(v => {
+      const sel = v.id === l.variantId;
+      const text = sel && num(v.price) !== num(l.price) ? saved : v.label || money(v.price);
+      return `<option value="${esc(v.id)}" ${sel ? 'selected' : ''}>${esc(text)}</option>`;
+    }).join('');
+  };
   const lineRow = (svcI, piI, l, p) => {
     const item = catalogue.find(c => c.id === l.itemId);
     const follows = l.follows?.length;
     const qty = lineQty(l, p.lines);
     return `<tr data-line="${svcI}.${piI}.${esc(l.id)}">
-      <td>${esc(l.name)}${item && item.variants.length > 1 ? ` <select data-variant>${item.variants.map(v =>
-        `<option value="${esc(v.id)}" ${v.id === l.variantId ? 'selected' : ''}>${esc(v.label || money(v.price))}</option>`).join('')}</select>`
+      <td>${esc(l.name)}${item && item.variants.length > 1 ? ` <select data-variant>${variantOptions(item, l)}</select>`
         : l.variantLabel ? ` <span class="muted">(${esc(l.variantLabel)})</span>` : ''}
         ${l.remark ? `<div class="muted small">${esc(l.remark)}</div>` : ''}</td>
       <td class="w-qty"><div class="row" style="flex-wrap:nowrap"><input class="n ${follows && !l.override ? 'auto' : ''}" data-f="qty" data-type="num" inputmode="decimal" value="${esc(follows ? qty : l.qty)}">
@@ -202,7 +227,8 @@ export function render(main, ctx, id) {
     else if (t.matches('[data-cp]')) p.cpOcm = readInput(t);
     else if (t.matches('[data-lump]')) p.lumpPrice = readInput(t);
     else if (line && t.matches('[data-variant]')) {
-      const v = catalogue.find(c => c.id === line.itemId).variants.find(x => x.id === t.value);
+      const v = catalogue.find(c => c.id === line.itemId)?.variants.find(x => x.id === t.value);
+      if (!v) return; // the "Saved" option: keep the quote's price
       Object.assign(line, { variantId: v.id, variantLabel: v.label, price: v.price });
       t.closest('[data-line]').querySelector('[data-f="price"]').value = v.price;
     } else if (line && t.dataset.f) {
