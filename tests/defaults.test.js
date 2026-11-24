@@ -17,3 +17,9 @@ test('built-in defaults carry no quotes, settings, signatures or contact details
   for (const k of ['quotes', 'settings', '_expected']) assert.ok(!(k in raw), k);
   assert.doesNotMatch(text, /@|\+63|\b09\d{9}\b|data:image|signature|accountNo/i);
 });
+
+test('built-in quantities start blank, so no house-specific numbers carry into a new quote', () => {
+  const lines = parseBackup(text).services.flatMap(s => s.payItems.flatMap(p => p.lines));
+  assert.ok(lines.length > 0);
+  assert.deepEqual(lines.filter(l => l.qty !== ''), []);
+});

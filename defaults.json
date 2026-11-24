@@ -886,7 +886,7 @@
        "kind": "material",
        "itemId": "rendered-interactive-floorplan-sqm",
        "variantId": "rendered-interactive-floorplan-sqm-v1",
-       "qty": 532,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -896,7 +896,7 @@
        "kind": "labor",
        "itemId": "it-specialist-man-day",
        "variantId": "it-specialist-man-day-v1",
-       "qty": 10.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -906,7 +906,7 @@
        "kind": "equipment",
        "itemId": "pc-day",
        "variantId": "pc-day-v1",
-       "qty": 10.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -932,7 +932,7 @@
        "kind": "material",
        "itemId": "fuel-consumption-km",
        "variantId": "fuel-consumption-km-v1",
-       "qty": 54,
+       "qty": "",
        "mult": 60.0,
        "remark": "",
        "follows": null
@@ -942,7 +942,7 @@
        "kind": "material",
        "itemId": "importation-fee-cu-m",
        "variantId": "importation-fee-cu-m-v1",
-       "qty": 1.5,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -952,7 +952,7 @@
        "kind": "material",
        "itemId": "toll-fees",
        "variantId": "toll-fees-v1",
-       "qty": 60,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -962,7 +962,7 @@
        "kind": "equipment",
        "itemId": "transport-vehicle-day",
        "variantId": "transport-vehicle-day-v1",
-       "qty": 60,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -988,7 +988,7 @@
        "kind": "material",
        "itemId": "dormitory-rental-days",
        "variantId": "dormitory-rental-days-v1",
-       "qty": 0.0,
+       "qty": "",
        "mult": 4.0,
        "remark": "",
        "follows": null
@@ -1014,7 +1014,7 @@
        "kind": "material",
        "itemId": "project-supervisor-days",
        "variantId": "project-supervisor-days-v1",
-       "qty": 60.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1069,7 +1069,7 @@
        "kind": "material",
        "itemId": "intel-nuc-i5-8gb-ram-128gb-ssd-unit",
        "variantId": "intel-nuc-i5-8gb-ram-128gb-ssd-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1079,7 +1079,7 @@
        "kind": "material",
        "itemId": "slzb06-zigbee-coordinator-unit",
        "variantId": "slzb06-zigbee-coordinator-unit-v1",
-       "qty": 21.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1089,7 +1089,7 @@
        "kind": "material",
        "itemId": "cat-6-utp-cable-roll",
        "variantId": "cat-6-utp-cable-roll-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1099,7 +1099,7 @@
        "kind": "material",
        "itemId": "8port-poe-2-port-uplink-network-switch-unit",
        "variantId": "8port-poe-2-port-uplink-network-switch-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1109,7 +1109,7 @@
        "kind": "material",
        "itemId": "24port-poe-2-port-uplink-network-switch-unit",
        "variantId": "24port-poe-2-port-uplink-network-switch-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1119,7 +1119,7 @@
        "kind": "material",
        "itemId": "12u-data-cabinet-lot",
        "variantId": "12u-data-cabinet-lot-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1129,7 +1129,7 @@
        "kind": "material",
        "itemId": "nabu-casa-subscription-year",
        "variantId": "nabu-casa-subscription-year-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1139,7 +1139,7 @@
        "kind": "material",
        "itemId": "uninterrupted-power-supply-ups-unit",
        "variantId": "uninterrupted-power-supply-ups-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1149,7 +1149,7 @@
        "kind": "material",
        "itemId": "power-distribution-unit-8-slot-unit",
        "variantId": "power-distribution-unit-8-slot-unit-v1",
-       "qty": 5.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1159,7 +1159,7 @@
        "kind": "labor",
        "itemId": "it-specialist-man-day",
        "variantId": "it-specialist-man-day-v2",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1169,7 +1169,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet",
        "variantId": "skilled-electrician-man-outlet-v1",
-       "qty": 33.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1179,7 +1179,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1212,7 +1212,7 @@
        "kind": "material",
        "itemId": "1-gang-smart-switch-unit",
        "variantId": "1-gang-smart-switch-unit-v1",
-       "qty": 18.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1222,7 +1222,7 @@
        "kind": "material",
        "itemId": "2-gang-smart-switch-unit",
        "variantId": "2-gang-smart-switch-unit-v1",
-       "qty": 6.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1232,7 +1232,7 @@
        "kind": "material",
        "itemId": "3-gang-smart-switch-unit",
        "variantId": "3-gang-smart-switch-unit-v1",
-       "qty": 25.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1242,7 +1242,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-outlet",
        "variantId": "skilled-technician-man-outlet-v1",
-       "qty": 49,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": [
@@ -1256,7 +1256,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 10.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1289,7 +1289,7 @@
        "kind": "material",
        "itemId": "smart-climate-rm4c-unit",
        "variantId": "smart-climate-rm4c-unit-v1",
-       "qty": 16.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1299,7 +1299,7 @@
        "kind": "material",
        "itemId": "power-supply-unit",
        "variantId": "power-supply-unit-v1",
-       "qty": 16.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1309,7 +1309,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-install-only-man-outlet",
        "variantId": "skilled-electrician-install-only-man-outlet-v1",
-       "qty": 16.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1319,7 +1319,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-config-only-man-device",
        "variantId": "skilled-technician-config-only-man-device-v1",
-       "qty": 16.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1329,7 +1329,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1362,7 +1362,7 @@
        "kind": "material",
        "itemId": "model-f-04-facial-recognition-smart-lock-main-door-unit",
        "variantId": "model-f-04-facial-recognition-smart-lock-main-door-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1372,7 +1372,7 @@
        "kind": "material",
        "itemId": "tuya-smart-lock-model-620-fingerprint-id-card-pin-unit",
        "variantId": "tuya-smart-lock-model-620-fingerprint-id-card-pin-unit-v1",
-       "qty": 2.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1382,7 +1382,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-day",
        "variantId": "skilled-technician-man-day-v1",
-       "qty": 5.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1392,7 +1392,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 5.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1425,7 +1425,7 @@
        "kind": "material",
        "itemId": "smart-curtain-motor-unit",
        "variantId": "smart-curtain-motor-unit-v1",
-       "qty": 18.0,
+       "qty": "",
        "mult": 1,
        "remark": "with sheer",
        "follows": null
@@ -1435,7 +1435,7 @@
        "kind": "material",
        "itemId": "rails-m",
        "variantId": "rails-m-v1",
-       "qty": 62.0,
+       "qty": "",
        "mult": 1,
        "remark": "with sheer",
        "follows": null
@@ -1445,7 +1445,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-day",
        "variantId": "skilled-technician-man-day-v1",
-       "qty": 10.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1455,7 +1455,7 @@
        "kind": "labor",
        "itemId": "helper-man-day",
        "variantId": "helper-man-day-v1",
-       "qty": 10.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1465,7 +1465,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet",
        "variantId": "skilled-electrician-man-outlet-v2",
-       "qty": 9.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1475,7 +1475,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 10.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1508,7 +1508,7 @@
        "kind": "material",
        "itemId": "15-6-wall-mounted-poe-smart-home-control-panel-touch-screen-rgb-led-backlight-unit",
        "variantId": "15-6-wall-mounted-poe-smart-home-control-panel-touch-screen-rgb-led-backlight-unit-v1",
-       "qty": 8.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1518,7 +1518,7 @@
        "kind": "material",
        "itemId": "fully-kiosk-license-unit",
        "variantId": "fully-kiosk-license-unit-v1",
-       "qty": 8.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1528,7 +1528,7 @@
        "kind": "labor",
        "itemId": "it-specialist-man-device",
        "variantId": "it-specialist-man-device-v1",
-       "qty": 8.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1538,7 +1538,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet",
        "variantId": "skilled-electrician-man-outlet-v2",
-       "qty": 8.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1548,7 +1548,7 @@
        "kind": "labor",
        "itemId": "helper-man-day",
        "variantId": "helper-man-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1558,7 +1558,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1591,7 +1591,7 @@
        "kind": "material",
        "itemId": "ceiling-mounted-mmwave-presence-sensor-unit",
        "variantId": "ceiling-mounted-mmwave-presence-sensor-unit-v1",
-       "qty": 16.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1601,7 +1601,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet",
        "variantId": "skilled-electrician-man-outlet-v2",
-       "qty": 16.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1611,7 +1611,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1644,7 +1644,7 @@
        "kind": "material",
        "itemId": "door-and-window-contact-sensor-unit",
        "variantId": "door-and-window-contact-sensor-unit-v1",
-       "qty": 15.0,
+       "qty": "",
        "mult": 1,
        "remark": "Entry Points",
        "follows": null
@@ -1654,7 +1654,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-day",
        "variantId": "skilled-technician-man-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1664,7 +1664,7 @@
        "kind": "labor",
        "itemId": "helper-man-day",
        "variantId": "helper-man-day-v2",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1674,7 +1674,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1707,7 +1707,7 @@
        "kind": "material",
        "itemId": "alexa-echo-pop-unit",
        "variantId": "alexa-echo-pop-unit-v1",
-       "qty": 19.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1717,7 +1717,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-device",
        "variantId": "skilled-technician-man-device-v1",
-       "qty": 19.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1727,7 +1727,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1760,7 +1760,7 @@
        "kind": "material",
        "itemId": "dh-ipc-hfw2449m-as-led-b-unit",
        "variantId": "dh-ipc-hfw2449m-as-led-b-unit-v1",
-       "qty": 11.0,
+       "qty": "",
        "mult": 1,
        "remark": "4MP Cameras Outdoor",
        "follows": null
@@ -1770,7 +1770,7 @@
        "kind": "material",
        "itemId": "ipc-hdw1239t1-a-led-s5-unit",
        "variantId": "ipc-hdw1239t1-a-led-s5-unit-v1",
-       "qty": 6.0,
+       "qty": "",
        "mult": 1,
        "remark": "4MP Cameras Indoor",
        "follows": null
@@ -1780,7 +1780,7 @@
        "kind": "material",
        "itemId": "nvr5224-24p-4ks2-unit",
        "variantId": "nvr5224-24p-4ks2-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "24CH 4HDD NVR",
        "follows": null
@@ -1790,7 +1790,7 @@
        "kind": "material",
        "itemId": "dh-cs4010-8et-110-unit",
        "variantId": "dh-cs4010-8et-110-unit-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "8CH 60W POE SW",
        "follows": null
@@ -1800,7 +1800,7 @@
        "kind": "material",
        "itemId": "dh-pfm350-900-a-unit",
        "variantId": "dh-pfm350-900-a-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "720W UPS",
        "follows": null
@@ -1810,7 +1810,7 @@
        "kind": "material",
        "itemId": "data-cabinet-unit",
        "variantId": "data-cabinet-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1820,7 +1820,7 @@
        "kind": "material",
        "itemId": "cat6-roll",
        "variantId": "cat6-roll-v1",
-       "qty": 2.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1830,7 +1830,7 @@
        "kind": "material",
        "itemId": "4tb-hdd-unit",
        "variantId": "4tb-hdd-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1840,7 +1840,7 @@
        "kind": "material",
        "itemId": "misc-materials-lot",
        "variantId": "misc-materials-lot-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1850,7 +1850,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet-2",
        "variantId": "skilled-electrician-man-outlet-2-v1",
-       "qty": 23,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": [
@@ -1867,7 +1867,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v2",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1900,7 +1900,7 @@
        "kind": "material",
        "itemId": "91-pass-through-rate-smart-film-sqm",
        "variantId": "91-pass-through-rate-smart-film-sqm-v1",
-       "qty": 21.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1910,7 +1910,7 @@
        "kind": "material",
        "itemId": "power-supply-unit-unit",
        "variantId": "power-supply-unit-unit-v1",
-       "qty": 2.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1920,7 +1920,7 @@
        "kind": "material",
        "itemId": "remote-control-unit",
        "variantId": "remote-control-unit-v1",
-       "qty": 2.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1930,7 +1930,7 @@
        "kind": "material",
        "itemId": "runner-wires-m",
        "variantId": "runner-wires-m-v1",
-       "qty": 40.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1940,7 +1940,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-helper-man-sqm",
        "variantId": "skilled-technician-helper-man-sqm-v1",
-       "qty": 24.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -1950,7 +1950,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 5.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -1983,7 +1983,7 @@
        "kind": "material",
        "itemId": "rg-eg210g-p-v3-unit",
        "variantId": "rg-eg210g-p-v3-unit-v1",
-       "qty": 1.0,
+       "qty": "",
        "mult": 1,
        "remark": "Router",
        "follows": null
@@ -1993,7 +1993,7 @@
        "kind": "material",
        "itemId": "rg-es210gs-p-unit",
        "variantId": "rg-es210gs-p-unit-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "Network Switch",
        "follows": null
@@ -2003,7 +2003,7 @@
        "kind": "material",
        "itemId": "rg-rap2260-g-unit",
        "variantId": "rg-rap2260-g-unit-v1",
-       "qty": 18.0,
+       "qty": "",
        "mult": 1,
        "remark": "Access Points-All Areas",
        "follows": null
@@ -2013,7 +2013,7 @@
        "kind": "material",
        "itemId": "cat6-roll",
        "variantId": "cat6-roll-v2",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2023,7 +2023,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-day",
        "variantId": "skilled-technician-man-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -2033,7 +2033,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet-2",
        "variantId": "skilled-electrician-man-outlet-2-v2",
-       "qty": 22,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": [
@@ -2047,7 +2047,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 7.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2080,7 +2080,7 @@
        "kind": "material",
        "itemId": "gate-motor-unit",
        "variantId": "gate-motor-unit-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2090,7 +2090,7 @@
        "kind": "material",
        "itemId": "signal-light-beacon-unit",
        "variantId": "signal-light-beacon-unit-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2100,7 +2100,7 @@
        "kind": "material",
        "itemId": "keyfob-unit",
        "variantId": "keyfob-unit-v1",
-       "qty": 6.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2110,7 +2110,7 @@
        "kind": "material",
        "itemId": "outdoor-waterproof-cabinet-mcb-unit",
        "variantId": "outdoor-waterproof-cabinet-mcb-unit-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2120,7 +2120,7 @@
        "kind": "material",
        "itemId": "anti-collission-sensor-lot",
        "variantId": "anti-collission-sensor-lot-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2130,7 +2130,7 @@
        "kind": "material",
        "itemId": "lpr-camera-unit",
        "variantId": "lpr-camera-unit-v1",
-       "qty": 3.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2140,7 +2140,7 @@
        "kind": "labor",
        "itemId": "skilled-technician-man-day",
        "variantId": "skilled-technician-man-day-v1",
-       "qty": 15.0,
+       "qty": "",
        "mult": 1.0,
        "remark": "",
        "follows": null
@@ -2150,7 +2150,7 @@
        "kind": "labor",
        "itemId": "skilled-electrician-man-outlet-2",
        "variantId": "skilled-electrician-man-outlet-2-v2",
-       "qty": 9.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2160,7 +2160,7 @@
        "kind": "equipment",
        "itemId": "miscelaneous-tools-day",
        "variantId": "miscelaneous-tools-day-v1",
-       "qty": 15.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2193,7 +2193,7 @@
        "kind": "material",
        "itemId": "14-awg-thhn-roll",
        "variantId": "14-awg-thhn-roll-v1",
-       "qty": 6.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2203,7 +2203,7 @@
        "kind": "material",
        "itemId": "12-awg-tw-roll",
        "variantId": "12-awg-tw-roll-v1",
-       "qty": 4.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2213,7 +2213,7 @@
        "kind": "material",
        "itemId": "3-4-flexible-conduit-roll",
        "variantId": "3-4-flexible-conduit-roll-v1",
-       "qty": 6.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
@@ -2223,7 +2223,7 @@
        "kind": "material",
        "itemId": "3-4-pvc-conduit-m",
        "variantId": "3-4-pvc-conduit-m-v1",
-       "qty": 70.0,
+       "qty": "",
        "mult": 1,
        "remark": "",
        "follows": null
