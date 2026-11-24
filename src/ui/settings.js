@@ -66,6 +66,14 @@ export function render(main, ctx) {
   </section>
   <section class="card">
     <h2>Company</h2>
+    <div class="logo-box">
+      <div class="logo-preview" data-logo-preview></div>
+      <div class="row">
+        <label class="button ghost">Upload logo<input type="file" accept="image/png,image/jpeg" data-logo-upload hidden></label>
+        <button class="ghost" data-logo-clear>Remove</button>
+        <span class="muted">Shown on the PDF cover and page headers. PNG with a transparent background looks best.</span>
+      </div>
+    </div>
     <div class="cols">
       ${field('Company name', s, 'company.name')}
       ${field('Phone', s, 'company.phone')}
@@ -85,6 +93,35 @@ export function render(main, ctx) {
   bindInputs(main, s, save);
   mountTerms(main.querySelector('[data-terms]'), s.paymentTerms, save);
   mountSignature(main.querySelector('.sig'), s, () => ctx.save('settings', s));
+  mountLogo(main, s, () => ctx.save('settings', s));
+}
+
+// Re-encode an uploaded image as PNG (keeps transparency) so the PDF library always accepts it.
+function toPng(file, maxWidth, done) {
+  const img = new Image();
+  img.onload = () => {
+    const c = document.createElement('canvas');
+    const k = Math.min(1, maxWidth / img.width);
+    c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    URL.revokeObjectURL(img.src);
+    done(c.toDataURL('image/png'));
+  };
+  img.onerror = () => alert('That file could not be read as an image.');
+  img.src = URL.createObjectURL(file);
+}
+
+function mountLogo(main, s, save) {
+  const preview = main.querySelector('[data-logo-preview]');
+  const draw = () => {
+    preview.innerHTML = s.company.logo ? `<img src="${s.company.logo}" alt="Company logo">` : '<span class="muted">No logo yet; the PDF shows the company name.</span>';
+  };
+  draw();
+  main.querySelector('[data-logo-upload]').onchange = e => {
+    const file = e.target.files[0];
+    if (file) toPng(file, 800, url => { s.company.logo = url; draw(); save(); });
+  };
+  main.querySelector('[data-logo-clear]').onclick = () => { s.company.logo = null; draw(); save(); };
 }
 
 function mountSignature(box, s, save) {
@@ -127,17 +164,6 @@ function mountSignature(box, s, save) {
   box.querySelector('[data-sig-upload]').onchange = e => {
     const file = e.target.files[0];
     if (!file) return;
-    // Re-encode through the canvas as PNG so the PDF library always gets a format it supports.
-    const img = new Image();
-    img.onload = () => {
-      const c = document.createElement('canvas');
-      const k = Math.min(1, 800 / img.width);
-      c.width = img.width * k; c.height = img.height * k;
-      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-      s.preparer.signature = c.toDataURL('image/png');
-      URL.revokeObjectURL(img.src);
-      paint(); save();
-    };
-    img.src = URL.createObjectURL(file);
+    toPng(file, 800, url => { s.preparer.signature = url; paint(); save(); });
   };
 }

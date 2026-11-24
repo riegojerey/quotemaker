@@ -55,7 +55,7 @@ test('signature appears on every page that has a Prepared By block', () => {
   const def = buildDocDefinition(fixture(), DEFAULT_SETTINGS);
   const { texts, images } = walk(def);
   assert.equal(images, texts.filter(t => t === 'Prepared By:').length);
-  assert.equal(images, 3);
+  assert.equal(images, 3); // BOQ, proforma, one DUPA (cover and summary have no signature)
 });
 
 test('missing signature, empty remarks and a 30-line pay item still build', () => {
@@ -91,4 +91,35 @@ test('DUPA title names the pay item when a section has several, else the section
   const single = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
   assert.ok(single.includes('SMART CLIMATE: DETAILED UNIT PRICE ANALYSIS (EXHIBIT B)'));
   assert.ok(single.includes('TOTAL UNIT COST FOR SMART CLIMATE'));
+});
+
+test('client-facing order: cover, what is included, then BOQ, proforma, DUPA', () => {
+  const texts = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
+  const at = t => texts.findIndex(x => x === t);
+  assert.ok(at('SMART HOME PROPOSAL') >= 0, 'cover title');
+  assert.ok(at("WHAT'S INCLUDED") > at('SMART HOME PROPOSAL'));
+  assert.ok(at('BILL OF QUANTITIES (EXHIBIT A)') > at("WHAT'S INCLUDED"));
+});
+
+test('cover shows project, client, tier and grand total', () => {
+  const q = fixture();
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  const cover = texts.slice(0, texts.indexOf("WHAT'S INCLUDED"));
+  for (const t of ['TEST HOME', 'MS. TEST OWNER', 'ELITE', `₱${fmtNum(quoteTotals(q).grandTotal)}`]) assert.ok(cover.includes(t), t);
+});
+
+test('what is included lists each service with device counts and remarks', () => {
+  const texts = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
+  assert.ok(texts.includes('10 × AC Controller'));
+  assert.ok(texts.includes('10 × Power Supply'));
+  assert.ok(!texts.some(t => /× Electrician/.test(t)), 'labor is not listed as a device');
+  assert.ok(texts.includes('Smart Climate in all ten (10) AC units'));
+  assert.ok(texts.includes('Property Assessment'));
+});
+
+test('company logo is used when set, and only then', () => {
+  const logo = 'data:image/png;base64,iVBORw0KGgo=';
+  const withLogo = walk(buildDocDefinition(fixture(), { ...DEFAULT_SETTINGS, company: { ...DEFAULT_SETTINGS.company, logo } }));
+  const without = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS));
+  assert.ok(withLogo.images > without.images);
 });
