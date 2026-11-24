@@ -99,7 +99,12 @@ export async function render(main, ctx, selectedId) {
 function lineRow(line, pi, catalogue) {
   const item = catalogue.find(c => c.id === line.itemId);
   const materials = pi.lines.filter(l => l.kind === 'material' && l.id !== line.id);
-  const nameOf = l => catalogue.find(c => c.id === l.itemId)?.name ?? '(missing item)';
+  const nameOf = l => {
+    const c = catalogue.find(x => x.id === l.itemId);
+    if (!c) return '(missing item)';
+    const v = c.variants.length > 1 ? c.variants.find(x => x.id === l.variantId) : null;
+    return v ? `${c.name} (${v.label || fmtPeso(v.price)})` : c.name; // same item in several sizes must be told apart
+  };
   return `<tr data-line="${esc(line.id)}">
     <td><select data-line-item>${item ? '' : '<option value="">— pick an item —</option>'}${catalogue.map(c =>
       `<option value="${esc(c.id)}" ${c.id === line.itemId ? 'selected' : ''}>${esc(c.name)}${c.unit ? ` (${esc(c.unit)})` : ''}</option>`).join('')}</select></td>
