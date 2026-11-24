@@ -104,7 +104,7 @@ function header(q, settings, title, dense = false) {
           ...(c.logo ? [{ text: s(c.name), bold: true, margin: [0, 4, 0, 0] }] : []),
           ...arr(c.address).filter(Boolean).map(a => ({ text: a, color: C.muted })),
           { text: [c.phone && `Phone: ${c.phone}`, c.email && `E-mail: ${c.email}`].filter(Boolean).join('   ·   '), color: C.muted },
-          { text: s(c.website), color: C.navy },
+          { text: s(c.website), color: C.orange },
         ] },
         { width: 'auto', stack: [
           { text: title, bold: true, fontSize: 16, alignment: 'right', color: C.navy },
@@ -133,7 +133,7 @@ const arr = v => (Array.isArray(v) ? v : []);
 
 // Soft filled label, e.g. the tier name.
 const pill = (text, alignment = 'left') => ({
-  table: { body: [[{ text, bold: true, fontSize: 8.5, color: C.navy, fillColor: C.soft, characterSpacing: 0.8, margin: [7, 2, 7, 2] }]] },
+  table: { body: [[{ text, bold: true, fontSize: 8.5, color: C.orange, fillColor: C.warm, characterSpacing: 0.8, margin: [7, 2, 7, 2] }]] },
   layout: 'noBorders', alignment, margin: [0, 4, 0, 0],
   ...(alignment === 'right' ? { width: 'auto' } : {}),
 });
@@ -141,7 +141,7 @@ const pill = (text, alignment = 'left') => ({
 function signature(q, dense = false) {
   const p = q.preparer || {};
   const block = (title, sig, name, sub) => ({ width: '*', stack: [
-    { text: title, bold: true, color: C.navy },
+    { text: title, bold: true, color: C.orange },
     sig ? { image: sig, width: dense ? 80 : 100, margin: [16, 0, 0, -6] } : { text: ' ', margin: [0, dense ? 12 : 16, 0, 0] },
     rule(175), { text: s(name), bold: true }, { text: s(sub), color: C.muted },
   ] });
@@ -150,7 +150,7 @@ function signature(q, dense = false) {
     columns: [
       block('Prepared By:', p.signature, p.name, p.title),
       block('Conforme:', null, q.conforme?.name, q.conforme?.title),
-      { width: 110, stack: [{ text: 'Validity', bold: true, color: C.navy }, { text: validity(q) }] },
+      { width: 110, stack: [{ text: 'Validity', bold: true, color: C.orange }, { text: validity(q) }] },
     ],
   };
 }
@@ -229,7 +229,7 @@ function boqTable(q, totals) {
     const p = svc.payItems[it.payItemIdx];
     if (it.section !== lastSection) {
       lastSection = it.section;
-      body.push([{ text: `${it.section}.0`, bold: true, color: C.navy }, { text: svc.title, bold: true, colSpan: 8, color: C.navy }, '', '', '', '', '', '', '']);
+      body.push([{ text: `${it.section}.0`, bold: true, color: C.orange }, { text: svc.title, bold: true, colSpan: 8, color: C.orange }, '', '', '', '', '', '', '']);
     }
     const t = it.totals;
     body.push([it.no, p.description, p.um, '1', ...[t.materials, t.labor, t.equipment, t.total].map(v => ({ text: fmtNum(v), alignment: 'right' })), '']);
@@ -301,7 +301,7 @@ function dupaPage(q, svc, p, no, t) {
   const sub = (label, v, opts = {}) => ['', { text: label, colSpan: 4, alignment: 'right', ...opts }, '', '', '', { text: fmtNum(v), alignment: 'right', ...opts }, { text: '', fillColor: opts.fillColor }];
   const body = [['ITEM', 'DESCRIPTION', 'QTY', 'U.M.', 'UNIT COST', 'TOTAL COST', 'REMARKS'].map(th)];
   [['material', '1.0', t.materials], ['labor', '2.0', t.labor], ['equipment', '3.0', t.equipment]].forEach(([k, n, v]) => {
-    body.push([{ text: n, bold: true, color: C.navy }, { text: s(p.headings?.[k]), bold: true, colSpan: 6, color: C.navy }, '', '', '', '', '']);
+    body.push([{ text: n, bold: true, color: C.orange }, { text: s(p.headings?.[k]), bold: true, colSpan: 6, color: C.orange }, '', '', '', '', '']);
     body.push(...lineRows(k));
     body.push(sub('SUBTOTAL', v, { color: C.muted }));
   });
@@ -334,17 +334,17 @@ export function buildDocDefinition(quote, settings) {
     info: { title: pdfFilename(quote).replace(/\.pdf$/, ''), author: c.name },
     defaultStyle: { fontSize: 9, lineHeight: 1.15, color: C.ink },
     styles: {
-      h: { bold: true, fontSize: 9, color: C.navy, margin: [0, 0, 0, 4], characterSpacing: 0.5 },
+      h: { bold: true, fontSize: 9, color: C.orange, margin: [0, 0, 0, 4], characterSpacing: 0.5 },
       th: { bold: true, fillColor: C.navy, color: '#FFFFFF', fontSize: 7.5 },
       title2: { bold: true, fontSize: 11, alignment: 'center', margin: [0, 2, 0, 6], color: C.navy },
       kicker: { fontSize: 8, bold: true, color: C.orange, characterSpacing: 1, margin: [0, 0, 0, 2] },
     },
     // Navy band with a thin orange edge across the top of every page.
-    background: (page, size) => ({ canvas: [{ type: 'rect', x: 0, y: 0, w: size.width, h: 6, color: C.navy }, { type: 'rect', x: 0, y: 6, w: size.width, h: 2, color: C.orange }] }),
+    background: (page, size) => ({ canvas: [{ type: 'rect', x: 0, y: 0, w: size.width, h: 6, color: C.navy }, { type: 'rect', x: 0, y: 6, w: size.width, h: 3, color: C.orange }] }),
     footer: (page, pages) => (page === 1 ? { text: contacts, alignment: 'center', fontSize: 7.5, color: C.muted, margin: [40, 16, 40, 0] } : {
       margin: [40, 10, 40, 0],
       stack: [
-        { canvas: [{ type: 'line', x1: 0, y1: 0, x2: PAGE_W - 80, y2: 0, lineWidth: 0.6, lineColor: C.line }] },
+        { canvas: [{ type: 'line', x1: 0, y1: 0, x2: PAGE_W - 80, y2: 0, lineWidth: 0.8, lineColor: C.orange }] },
         { columns: [{ text: contacts, fontSize: 7, color: C.muted }, { text: `${s(quote.code)}  ·  Page ${page} of ${pages}`, alignment: 'right', fontSize: 7, color: C.muted, width: 'auto' }], margin: [0, 5, 0, 0] },
       ],
     }),
