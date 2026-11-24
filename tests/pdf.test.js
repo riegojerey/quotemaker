@@ -23,7 +23,7 @@ const pi = (description, lines, extra = {}) => ({ id: description, description, 
 
 const fixture = (over = {}) => ({
   id: 'q', code: '1009TEST26', date: '2026-10-23', validFrom: '2026-10-23', validTo: '2026-11-23', tierName: 'Elite',
-  client: { owner: 'MS. TEST OWNER', address: 'LOT 3\nBLK 5\nMAJORCA ST.', project: 'TEST HOME', email: '' },
+  client: { owner: 'MS. TEST OWNER', address: 'LOT 3\nBLK 5\nSAMPLE ST.', project: 'TEST HOME', email: '' },
   contractor: { enterprise: 'Builder Co.', rep: 'Ms. Rep', contact: '', email: 'rep@example.com' },
   generalContractor: 'BUILDER CO.', conforme: { name: 'MS. TEST OWNER', title: 'Owner' },
   services: [

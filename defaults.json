@@ -1,0 +1,2237 @@
+{
+ "app": "quotemaker",
+ "version": 1,
+ "catalogue": [
+  {
+   "id": "rendered-interactive-floorplan-sqm",
+   "name": "RENDERED INTERACTIVE FLOORPLAN",
+   "unit": "sqm",
+   "variants": [
+    {
+     "id": "rendered-interactive-floorplan-sqm-v1",
+     "label": "",
+     "price": 125.0
+    }
+   ]
+  },
+  {
+   "id": "it-specialist-man-day",
+   "name": "IT Specialist",
+   "unit": "man-day",
+   "variants": [
+    {
+     "id": "it-specialist-man-day-v1",
+     "label": "",
+     "price": 950.0
+    },
+    {
+     "id": "it-specialist-man-day-v2",
+     "label": "",
+     "price": 880.0
+    }
+   ]
+  },
+  {
+   "id": "pc-day",
+   "name": "PC",
+   "unit": "day",
+   "variants": [
+    {
+     "id": "pc-day-v1",
+     "label": "",
+     "price": 120.0
+    }
+   ]
+  },
+  {
+   "id": "fuel-consumption-km",
+   "name": "FUEL CONSUMPTION",
+   "unit": "km",
+   "variants": [
+    {
+     "id": "fuel-consumption-km-v1",
+     "label": "",
+     "price": 30.0
+    }
+   ]
+  },
+  {
+   "id": "importation-fee-cu-m",
+   "name": "IMPORTATION FEE",
+   "unit": "cu.m.",
+   "variants": [
+    {
+     "id": "importation-fee-cu-m-v1",
+     "label": "",
+     "price": 9750.0
+    }
+   ]
+  },
+  {
+   "id": "toll-fees",
+   "name": "TOLL FEES",
+   "unit": "",
+   "variants": [
+    {
+     "id": "toll-fees-v1",
+     "label": "",
+     "price": 162
+    }
+   ]
+  },
+  {
+   "id": "transport-vehicle-day",
+   "name": "Transport Vehicle",
+   "unit": "day",
+   "variants": [
+    {
+     "id": "transport-vehicle-day-v1",
+     "label": "",
+     "price": 200.0
+    }
+   ]
+  },
+  {
+   "id": "dormitory-rental-days",
+   "name": "DORMITORY RENTAL",
+   "unit": "days",
+   "variants": [
+    {
+     "id": "dormitory-rental-days-v1",
+     "label": "",
+     "price": 175.0
+    }
+   ]
+  },
+  {
+   "id": "project-supervisor-days",
+   "name": "PROJECT SUPERVISOR",
+   "unit": "days",
+   "variants": [
+    {
+     "id": "project-supervisor-days-v1",
+     "label": "",
+     "price": 1500.0
+    }
+   ]
+  },
+  {
+   "id": "intel-nuc-i5-8gb-ram-128gb-ssd-unit",
+   "name": "Intel NUC i5 8GB RAM 128GB SSD",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "intel-nuc-i5-8gb-ram-128gb-ssd-unit-v1",
+     "label": "",
+     "price": 12000
+    }
+   ]
+  },
+  {
+   "id": "slzb06-zigbee-coordinator-unit",
+   "name": "SLZB06 Zigbee Coordinator",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "slzb06-zigbee-coordinator-unit-v1",
+     "label": "",
+     "price": 2800.0
+    }
+   ]
+  },
+  {
+   "id": "cat-6-utp-cable-roll",
+   "name": "CAT-6 UTP CABLE",
+   "unit": "roll",
+   "variants": [
+    {
+     "id": "cat-6-utp-cable-roll-v1",
+     "label": "",
+     "price": 9500.0
+    }
+   ]
+  },
+  {
+   "id": "8port-poe-2-port-uplink-network-switch-unit",
+   "name": "8Port PoE+ 2 Port Uplink Network Switch",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "8port-poe-2-port-uplink-network-switch-unit-v1",
+     "label": "",
+     "price": 5300.0
+    }
+   ]
+  },
+  {
+   "id": "24port-poe-2-port-uplink-network-switch-unit",
+   "name": "24Port PoE+ 2 Port Uplink Network Switch",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "24port-poe-2-port-uplink-network-switch-unit-v1",
+     "label": "",
+     "price": 12000.0
+    }
+   ]
+  },
+  {
+   "id": "12u-data-cabinet-lot",
+   "name": "12U Data Cabinet",
+   "unit": "Lot",
+   "variants": [
+    {
+     "id": "12u-data-cabinet-lot-v1",
+     "label": "",
+     "price": 14000.0
+    }
+   ]
+  },
+  {
+   "id": "nabu-casa-subscription-year",
+   "name": "Nabu Casa Subscription",
+   "unit": "year",
+   "variants": [
+    {
+     "id": "nabu-casa-subscription-year-v1",
+     "label": "",
+     "price": 4500.0
+    }
+   ]
+  },
+  {
+   "id": "uninterrupted-power-supply-ups-unit",
+   "name": "Uninterrupted Power Supply (UPS)",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "uninterrupted-power-supply-ups-unit-v1",
+     "label": "",
+     "price": 7500.0
+    }
+   ]
+  },
+  {
+   "id": "power-distribution-unit-8-slot-unit",
+   "name": "Power Distribution Unit 8 slot",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "power-distribution-unit-8-slot-unit-v1",
+     "label": "",
+     "price": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-electrician-man-outlet",
+   "name": "Skilled.Electrician",
+   "unit": "man-outlet",
+   "variants": [
+    {
+     "id": "skilled-electrician-man-outlet-v1",
+     "label": "",
+     "price": 450.0
+    },
+    {
+     "id": "skilled-electrician-man-outlet-v2",
+     "label": "",
+     "price": 800.0
+    }
+   ]
+  },
+  {
+   "id": "miscelaneous-tools-day",
+   "name": "Miscelaneous tools",
+   "unit": "day",
+   "variants": [
+    {
+     "id": "miscelaneous-tools-day-v1",
+     "label": "",
+     "price": 650.0
+    },
+    {
+     "id": "miscelaneous-tools-day-v2",
+     "label": "",
+     "price": 120.0
+    }
+   ]
+  },
+  {
+   "id": "1-gang-smart-switch-unit",
+   "name": "1 GANG SMART SWITCH",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "1-gang-smart-switch-unit-v1",
+     "label": "",
+     "price": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "2-gang-smart-switch-unit",
+   "name": "2 GANG SMART SWITCH",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "2-gang-smart-switch-unit-v1",
+     "label": "",
+     "price": 1100.0
+    }
+   ]
+  },
+  {
+   "id": "3-gang-smart-switch-unit",
+   "name": "3 GANG SMART SWITCH",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "3-gang-smart-switch-unit-v1",
+     "label": "",
+     "price": 1200.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-technician-man-outlet",
+   "name": "Skilled.Technician",
+   "unit": "man-outlet",
+   "variants": [
+    {
+     "id": "skilled-technician-man-outlet-v1",
+     "label": "",
+     "price": 800.0
+    }
+   ]
+  },
+  {
+   "id": "smart-climate-rm4c-unit",
+   "name": "Smart Climate RM4C",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "smart-climate-rm4c-unit-v1",
+     "label": "",
+     "price": 1200.0
+    }
+   ]
+  },
+  {
+   "id": "power-supply-unit",
+   "name": "Power Supply",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "power-supply-unit-v1",
+     "label": "",
+     "price": 300.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-electrician-install-only-man-outlet",
+   "name": "Skilled.Electrician.Install.Only",
+   "unit": "man-outlet",
+   "variants": [
+    {
+     "id": "skilled-electrician-install-only-man-outlet-v1",
+     "label": "",
+     "price": 800.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-technician-config-only-man-device",
+   "name": "Skilled.Technician.Config.Only",
+   "unit": "man-device",
+   "variants": [
+    {
+     "id": "skilled-technician-config-only-man-device-v1",
+     "label": "",
+     "price": 800.0
+    }
+   ]
+  },
+  {
+   "id": "model-f-04-facial-recognition-smart-lock-main-door-unit",
+   "name": "Model F-04 Facial Recognition Smart Lock- Main Door",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "model-f-04-facial-recognition-smart-lock-main-door-unit-v1",
+     "label": "",
+     "price": 24999.0
+    }
+   ]
+  },
+  {
+   "id": "tuya-smart-lock-model-620-fingerprint-id-card-pin-unit",
+   "name": "Tuya Smart Lock Model 620 (Fingerprint/ ID Card/ PIN)",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "tuya-smart-lock-model-620-fingerprint-id-card-pin-unit-v1",
+     "label": "",
+     "price": 7500.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-technician-man-day",
+   "name": "Skilled.Technician",
+   "unit": "man-day",
+   "variants": [
+    {
+     "id": "skilled-technician-man-day-v1",
+     "label": "",
+     "price": 850.0
+    }
+   ]
+  },
+  {
+   "id": "smart-curtain-motor-unit",
+   "name": "Smart Curtain Motor ()",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "smart-curtain-motor-unit-v1",
+     "label": "",
+     "price": 2900.0
+    }
+   ]
+  },
+  {
+   "id": "rails-m",
+   "name": "Rails",
+   "unit": "m",
+   "variants": [
+    {
+     "id": "rails-m-v1",
+     "label": "",
+     "price": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "helper-man-day",
+   "name": "Helper",
+   "unit": "man-day",
+   "variants": [
+    {
+     "id": "helper-man-day-v1",
+     "label": "",
+     "price": 650.0
+    },
+    {
+     "id": "helper-man-day-v2",
+     "label": "",
+     "price": 600.0
+    }
+   ]
+  },
+  {
+   "id": "15-6-wall-mounted-poe-smart-home-control-panel-touch-screen-rgb-led-backlight-unit",
+   "name": "15.6\" Wall Mounted POE Smart Home Control Panel Touch Screen, RGB LED Backlight",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "15-6-wall-mounted-poe-smart-home-control-panel-touch-screen-rgb-led-backlight-unit-v1",
+     "label": "",
+     "price": 24995.0
+    }
+   ]
+  },
+  {
+   "id": "fully-kiosk-license-unit",
+   "name": "Fully Kiosk License",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "fully-kiosk-license-unit-v1",
+     "label": "",
+     "price": 599.0
+    }
+   ]
+  },
+  {
+   "id": "it-specialist-man-device",
+   "name": "IT Specialist",
+   "unit": "man-device",
+   "variants": [
+    {
+     "id": "it-specialist-man-device-v1",
+     "label": "",
+     "price": 850.0
+    }
+   ]
+  },
+  {
+   "id": "ceiling-mounted-mmwave-presence-sensor-unit",
+   "name": "CEILING MOUNTED MMWAVE PRESENCE SENSOR",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "ceiling-mounted-mmwave-presence-sensor-unit-v1",
+     "label": "",
+     "price": 1580
+    }
+   ]
+  },
+  {
+   "id": "door-and-window-contact-sensor-unit",
+   "name": "Door and Window Contact Sensor",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "door-and-window-contact-sensor-unit-v1",
+     "label": "",
+     "price": 1200.0
+    }
+   ]
+  },
+  {
+   "id": "alexa-echo-pop-unit",
+   "name": "Alexa Echo Pop",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "alexa-echo-pop-unit-v1",
+     "label": "",
+     "price": 3750.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-technician-man-device",
+   "name": "Skilled.Technician",
+   "unit": "man-device",
+   "variants": [
+    {
+     "id": "skilled-technician-man-device-v1",
+     "label": "",
+     "price": 250.0
+    }
+   ]
+  },
+  {
+   "id": "dh-ipc-hfw2449m-as-led-b-unit",
+   "name": "DH-IPC-HFW2449M-AS-LED-B",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "dh-ipc-hfw2449m-as-led-b-unit-v1",
+     "label": "",
+     "price": 6800
+    }
+   ]
+  },
+  {
+   "id": "ipc-hdw1239t1-a-led-s5-unit",
+   "name": "IPC-HDW1239T1-A-LED-S5",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "ipc-hdw1239t1-a-led-s5-unit-v1",
+     "label": "",
+     "price": 4800
+    }
+   ]
+  },
+  {
+   "id": "nvr5224-24p-4ks2-unit",
+   "name": "NVR5224-24P-4KS2",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "nvr5224-24p-4ks2-unit-v1",
+     "label": "",
+     "price": 32349.0
+    }
+   ]
+  },
+  {
+   "id": "dh-cs4010-8et-110-unit",
+   "name": "DH-CS4010-8ET-110",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "dh-cs4010-8et-110-unit-v1",
+     "label": "",
+     "price": 3299.0
+    }
+   ]
+  },
+  {
+   "id": "dh-pfm350-900-a-unit",
+   "name": "DH-PFM350-900-A",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "dh-pfm350-900-a-unit-v1",
+     "label": "",
+     "price": 6000.0
+    }
+   ]
+  },
+  {
+   "id": "data-cabinet-unit",
+   "name": "Data Cabinet",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "data-cabinet-unit-v1",
+     "label": "",
+     "price": 4500.0
+    }
+   ]
+  },
+  {
+   "id": "cat6-roll",
+   "name": "CAT6",
+   "unit": "roll",
+   "variants": [
+    {
+     "id": "cat6-roll-v1",
+     "label": "",
+     "price": 9500.0
+    },
+    {
+     "id": "cat6-roll-v2",
+     "label": "",
+     "price": 6900.0
+    }
+   ]
+  },
+  {
+   "id": "4tb-hdd-unit",
+   "name": "4TB HDD",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "4tb-hdd-unit-v1",
+     "label": "",
+     "price": 17000.0
+    }
+   ]
+  },
+  {
+   "id": "misc-materials-lot",
+   "name": "Misc. Materials",
+   "unit": "lot",
+   "variants": [
+    {
+     "id": "misc-materials-lot-v1",
+     "label": "",
+     "price": 5000.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-electrician-man-outlet-2",
+   "name": "Skilled. Electrician",
+   "unit": "man-outlet",
+   "variants": [
+    {
+     "id": "skilled-electrician-man-outlet-2-v1",
+     "label": "",
+     "price": 450.0
+    },
+    {
+     "id": "skilled-electrician-man-outlet-2-v2",
+     "label": "",
+     "price": 800.0
+    }
+   ]
+  },
+  {
+   "id": "91-pass-through-rate-smart-film-sqm",
+   "name": "91% Pass-through rate Smart Film",
+   "unit": "sqm",
+   "variants": [
+    {
+     "id": "91-pass-through-rate-smart-film-sqm-v1",
+     "label": "",
+     "price": 7500.0
+    }
+   ]
+  },
+  {
+   "id": "power-supply-unit-unit",
+   "name": "Power Supply Unit",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "power-supply-unit-unit-v1",
+     "label": "",
+     "price": 3000.0
+    }
+   ]
+  },
+  {
+   "id": "remote-control-unit",
+   "name": "Remote Control",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "remote-control-unit-v1",
+     "label": "",
+     "price": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "runner-wires-m",
+   "name": "Runner Wires",
+   "unit": "m",
+   "variants": [
+    {
+     "id": "runner-wires-m-v1",
+     "label": "",
+     "price": 150.0
+    }
+   ]
+  },
+  {
+   "id": "skilled-technician-helper-man-sqm",
+   "name": "Skilled.Technician.Helper",
+   "unit": "man-sqm",
+   "variants": [
+    {
+     "id": "skilled-technician-helper-man-sqm-v1",
+     "label": "",
+     "price": 1000.0
+    }
+   ]
+  },
+  {
+   "id": "rg-eg210g-p-v3-unit",
+   "name": "RG-EG210G-P-V3",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "rg-eg210g-p-v3-unit-v1",
+     "label": "",
+     "price": 17487.0
+    }
+   ]
+  },
+  {
+   "id": "rg-es210gs-p-unit",
+   "name": "RG-ES210GS-P",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "rg-es210gs-p-unit-v1",
+     "label": "",
+     "price": 10299.0
+    }
+   ]
+  },
+  {
+   "id": "rg-rap2260-g-unit",
+   "name": "RG-RAP2260(G)",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "rg-rap2260-g-unit-v1",
+     "label": "",
+     "price": 11808.0
+    }
+   ]
+  },
+  {
+   "id": "gate-motor-unit",
+   "name": "Gate Motor",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "gate-motor-unit-v1",
+     "label": "",
+     "price": 27999.0
+    }
+   ]
+  },
+  {
+   "id": "signal-light-beacon-unit",
+   "name": "Signal Light Beacon",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "signal-light-beacon-unit-v1",
+     "label": "",
+     "price": 1999.0
+    }
+   ]
+  },
+  {
+   "id": "keyfob-unit",
+   "name": "Keyfob",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "keyfob-unit-v1",
+     "label": "",
+     "price": 590.0
+    }
+   ]
+  },
+  {
+   "id": "outdoor-waterproof-cabinet-mcb-unit",
+   "name": "Outdoor Waterproof Cabinet, MCB",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "outdoor-waterproof-cabinet-mcb-unit-v1",
+     "label": "",
+     "price": 1200.0
+    }
+   ]
+  },
+  {
+   "id": "anti-collission-sensor-lot",
+   "name": "Anti-collission Sensor",
+   "unit": "lot",
+   "variants": [
+    {
+     "id": "anti-collission-sensor-lot-v1",
+     "label": "",
+     "price": 2560.0
+    }
+   ]
+  },
+  {
+   "id": "lpr-camera-unit",
+   "name": "LPR CAMERA",
+   "unit": "unit",
+   "variants": [
+    {
+     "id": "lpr-camera-unit-v1",
+     "label": "",
+     "price": 42900.0
+    }
+   ]
+  },
+  {
+   "id": "14-awg-thhn-roll",
+   "name": "14 AWG  THHN",
+   "unit": "roll",
+   "variants": [
+    {
+     "id": "14-awg-thhn-roll-v1",
+     "label": "",
+     "price": 4500.0
+    }
+   ]
+  },
+  {
+   "id": "12-awg-tw-roll",
+   "name": "12 AWG TW",
+   "unit": "roll",
+   "variants": [
+    {
+     "id": "12-awg-tw-roll-v1",
+     "label": "",
+     "price": 4900.0
+    }
+   ]
+  },
+  {
+   "id": "3-4-flexible-conduit-roll",
+   "name": "3/4\" Flexible Conduit",
+   "unit": "roll",
+   "variants": [
+    {
+     "id": "3-4-flexible-conduit-roll-v1",
+     "label": "",
+     "price": 800.0
+    }
+   ]
+  },
+  {
+   "id": "3-4-pvc-conduit-m",
+   "name": "3/4\" PVC Conduit",
+   "unit": "m",
+   "variants": [
+    {
+     "id": "3-4-pvc-conduit-m-v1",
+     "label": "",
+     "price": 120.0
+    }
+   ]
+  }
+ ],
+ "services": [
+  {
+   "id": "general-requirements",
+   "title": "GENERAL REQUIREMENTS",
+   "order": 1,
+   "payItems": [
+    {
+     "id": "rendered-interactive-floorplan",
+     "description": "Rendered Interactive Floorplan",
+     "um": "lot",
+     "prerequisite": "",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "rendered-interactive-floorplan-r8",
+       "kind": "material",
+       "itemId": "rendered-interactive-floorplan-sqm",
+       "variantId": "rendered-interactive-floorplan-sqm-v1",
+       "qty": 532,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "rendered-interactive-floorplan-r21",
+       "kind": "labor",
+       "itemId": "it-specialist-man-day",
+       "variantId": "it-specialist-man-day-v1",
+       "qty": 10.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "rendered-interactive-floorplan-r30",
+       "kind": "equipment",
+       "itemId": "pc-day",
+       "variantId": "pc-day-v1",
+       "qty": 10.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    },
+    {
+     "id": "mobilization-demobilization",
+     "description": "Mobilization/Demobilization",
+     "um": "lot",
+     "prerequisite": "",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "TRANSPORTATION",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "mobilization-demobilization-r8",
+       "kind": "material",
+       "itemId": "fuel-consumption-km",
+       "variantId": "fuel-consumption-km-v1",
+       "qty": 54,
+       "mult": 60.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "mobilization-demobilization-r9",
+       "kind": "material",
+       "itemId": "importation-fee-cu-m",
+       "variantId": "importation-fee-cu-m-v1",
+       "qty": 1.5,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "mobilization-demobilization-r10",
+       "kind": "material",
+       "itemId": "toll-fees",
+       "variantId": "toll-fees-v1",
+       "qty": 60,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "mobilization-demobilization-r30",
+       "kind": "equipment",
+       "itemId": "transport-vehicle-day",
+       "variantId": "transport-vehicle-day-v1",
+       "qty": 60,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    },
+    {
+     "id": "temporary-facilities",
+     "description": "Temporary Facilities",
+     "um": "lot",
+     "prerequisite": "",
+     "cpOcm": 0.0,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "LODGING",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "temporary-facilities-r8",
+       "kind": "material",
+       "itemId": "dormitory-rental-days",
+       "variantId": "dormitory-rental-days-v1",
+       "qty": 0.0,
+       "mult": 4.0,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    },
+    {
+     "id": "project-management",
+     "description": "Project Management",
+     "um": "lot",
+     "prerequisite": "RENDERED FLOOR PLAN (TOP)",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "SUPERVISION",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "project-management-r8",
+       "kind": "material",
+       "itemId": "project-supervisor-days",
+       "variantId": "project-supervisor-days-v1",
+       "qty": 60.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "existing-condition",
+   "title": "EXISTING CONDITION",
+   "order": 2,
+   "payItems": [
+    {
+     "id": "property-assessment",
+     "description": "Property Assessment",
+     "um": "lot",
+     "prerequisite": "",
+     "cpOcm": 0.0,
+     "lumpSum": true,
+     "lumpPrice": 5000.0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": []
+    }
+   ]
+  },
+  {
+   "id": "server-and-network-installation",
+   "title": "SERVER AND NETWORK INSTALLATION",
+   "order": 3,
+   "payItems": [
+    {
+     "id": "home-assistant-server-hardware-and-network-ap",
+     "description": "Home Assistant Server Hardware and Network AP",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r8",
+       "kind": "material",
+       "itemId": "intel-nuc-i5-8gb-ram-128gb-ssd-unit",
+       "variantId": "intel-nuc-i5-8gb-ram-128gb-ssd-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r9",
+       "kind": "material",
+       "itemId": "slzb06-zigbee-coordinator-unit",
+       "variantId": "slzb06-zigbee-coordinator-unit-v1",
+       "qty": 21.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r10",
+       "kind": "material",
+       "itemId": "cat-6-utp-cable-roll",
+       "variantId": "cat-6-utp-cable-roll-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r11",
+       "kind": "material",
+       "itemId": "8port-poe-2-port-uplink-network-switch-unit",
+       "variantId": "8port-poe-2-port-uplink-network-switch-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r12",
+       "kind": "material",
+       "itemId": "24port-poe-2-port-uplink-network-switch-unit",
+       "variantId": "24port-poe-2-port-uplink-network-switch-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r13",
+       "kind": "material",
+       "itemId": "12u-data-cabinet-lot",
+       "variantId": "12u-data-cabinet-lot-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r14",
+       "kind": "material",
+       "itemId": "nabu-casa-subscription-year",
+       "variantId": "nabu-casa-subscription-year-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r15",
+       "kind": "material",
+       "itemId": "uninterrupted-power-supply-ups-unit",
+       "variantId": "uninterrupted-power-supply-ups-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r16",
+       "kind": "material",
+       "itemId": "power-distribution-unit-8-slot-unit",
+       "variantId": "power-distribution-unit-8-slot-unit-v1",
+       "qty": 5.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r24",
+       "kind": "labor",
+       "itemId": "it-specialist-man-day",
+       "variantId": "it-specialist-man-day-v2",
+       "qty": 7.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r25",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet",
+       "variantId": "skilled-electrician-man-outlet-v1",
+       "qty": 33.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "home-assistant-server-hardware-and-network-ap-r33",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smart-lighting",
+   "title": "SMART LIGHTING",
+   "order": 4,
+   "payItems": [
+    {
+     "id": "smart-switch",
+     "description": "Smart Switch",
+     "um": "unit",
+     "prerequisite": "LIGHTING OUTLET",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "smart-switch-r8",
+       "kind": "material",
+       "itemId": "1-gang-smart-switch-unit",
+       "variantId": "1-gang-smart-switch-unit-v1",
+       "qty": 18.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-switch-r9",
+       "kind": "material",
+       "itemId": "2-gang-smart-switch-unit",
+       "variantId": "2-gang-smart-switch-unit-v1",
+       "qty": 6.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-switch-r10",
+       "kind": "material",
+       "itemId": "3-gang-smart-switch-unit",
+       "variantId": "3-gang-smart-switch-unit-v1",
+       "qty": 25.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-switch-r21",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-outlet",
+       "variantId": "skilled-technician-man-outlet-v1",
+       "qty": 49,
+       "mult": 1.0,
+       "remark": "",
+       "follows": [
+        "smart-switch-r8",
+        "smart-switch-r9",
+        "smart-switch-r10"
+       ]
+      },
+      {
+       "id": "smart-switch-r30",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 10.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smart-climate",
+   "title": "SMART CLIMATE",
+   "order": 5,
+   "payItems": [
+    {
+     "id": "ac-controller",
+     "description": "AC Controller",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "ac-controller-r8",
+       "kind": "material",
+       "itemId": "smart-climate-rm4c-unit",
+       "variantId": "smart-climate-rm4c-unit-v1",
+       "qty": 16.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "ac-controller-r9",
+       "kind": "material",
+       "itemId": "power-supply-unit",
+       "variantId": "power-supply-unit-v1",
+       "qty": 16.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "ac-controller-r21",
+       "kind": "labor",
+       "itemId": "skilled-electrician-install-only-man-outlet",
+       "variantId": "skilled-electrician-install-only-man-outlet-v1",
+       "qty": 16.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "ac-controller-r22",
+       "kind": "labor",
+       "itemId": "skilled-technician-config-only-man-device",
+       "variantId": "skilled-technician-config-only-man-device-v1",
+       "qty": 16.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "ac-controller-r30",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smart-door-lock",
+   "title": "SMART DOOR LOCK",
+   "order": 6,
+   "payItems": [
+    {
+     "id": "smart-locks",
+     "description": "Smart Locks",
+     "um": "unit",
+     "prerequisite": "WOODEN DOOR & JAMB",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "smart-locks-r8",
+       "kind": "material",
+       "itemId": "model-f-04-facial-recognition-smart-lock-main-door-unit",
+       "variantId": "model-f-04-facial-recognition-smart-lock-main-door-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-locks-r10",
+       "kind": "material",
+       "itemId": "tuya-smart-lock-model-620-fingerprint-id-card-pin-unit",
+       "variantId": "tuya-smart-lock-model-620-fingerprint-id-card-pin-unit-v1",
+       "qty": 2.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-locks-r26",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-day",
+       "variantId": "skilled-technician-man-day-v1",
+       "qty": 5.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-locks-r35",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 5.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smart-covers",
+   "title": "SMART COVERS",
+   "order": 7,
+   "payItems": [
+    {
+     "id": "smart-curtains-and-blinds",
+     "description": "Smart Curtains and Blinds",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET/PWR",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "smart-curtains-and-blinds-r8",
+       "kind": "material",
+       "itemId": "smart-curtain-motor-unit",
+       "variantId": "smart-curtain-motor-unit-v1",
+       "qty": 18.0,
+       "mult": 1,
+       "remark": "with sheer",
+       "follows": null
+      },
+      {
+       "id": "smart-curtains-and-blinds-r10",
+       "kind": "material",
+       "itemId": "rails-m",
+       "variantId": "rails-m-v1",
+       "qty": 62.0,
+       "mult": 1,
+       "remark": "with sheer",
+       "follows": null
+      },
+      {
+       "id": "smart-curtains-and-blinds-r22",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-day",
+       "variantId": "skilled-technician-man-day-v1",
+       "qty": 10.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-curtains-and-blinds-r23",
+       "kind": "labor",
+       "itemId": "helper-man-day",
+       "variantId": "helper-man-day-v1",
+       "qty": 10.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-curtains-and-blinds-r24",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet",
+       "variantId": "skilled-electrician-man-outlet-v2",
+       "qty": 9.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-curtains-and-blinds-r31",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 10.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interactive-control-panel",
+   "title": "INTERACTIVE CONTROL PANEL",
+   "order": 8,
+   "payItems": [
+    {
+     "id": "control-panels",
+     "description": "Control Panels",
+     "um": "unit",
+     "prerequisite": "PWR/LAN POE",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "control-panels-r8",
+       "kind": "material",
+       "itemId": "15-6-wall-mounted-poe-smart-home-control-panel-touch-screen-rgb-led-backlight-unit",
+       "variantId": "15-6-wall-mounted-poe-smart-home-control-panel-touch-screen-rgb-led-backlight-unit-v1",
+       "qty": 8.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "control-panels-r9",
+       "kind": "material",
+       "itemId": "fully-kiosk-license-unit",
+       "variantId": "fully-kiosk-license-unit-v1",
+       "qty": 8.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "control-panels-r21",
+       "kind": "labor",
+       "itemId": "it-specialist-man-device",
+       "variantId": "it-specialist-man-device-v1",
+       "qty": 8.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "control-panels-r22",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet",
+       "variantId": "skilled-electrician-man-outlet-v2",
+       "qty": 8.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "control-panels-r23",
+       "kind": "labor",
+       "itemId": "helper-man-day",
+       "variantId": "helper-man-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "control-panels-r30",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "presence-detection",
+   "title": "PRESENCE DETECTION",
+   "order": 9,
+   "payItems": [
+    {
+     "id": "presence-sensors",
+     "description": "Presence Sensors",
+     "um": "unit",
+     "prerequisite": "POWER LINE (L+N)",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "presence-sensors-r8",
+       "kind": "material",
+       "itemId": "ceiling-mounted-mmwave-presence-sensor-unit",
+       "variantId": "ceiling-mounted-mmwave-presence-sensor-unit-v1",
+       "qty": 16.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "presence-sensors-r20",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet",
+       "variantId": "skilled-electrician-man-outlet-v2",
+       "qty": 16.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "presence-sensors-r29",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "entry-and-alarm-system",
+   "title": "ENTRY AND ALARM SYSTEM",
+   "order": 10,
+   "payItems": [
+    {
+     "id": "door-and-window-contact-sensors",
+     "description": "Door and Window Contact Sensors",
+     "um": "unit",
+     "prerequisite": "D&W",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "door-and-window-contact-sensors-r8",
+       "kind": "material",
+       "itemId": "door-and-window-contact-sensor-unit",
+       "variantId": "door-and-window-contact-sensor-unit-v1",
+       "qty": 15.0,
+       "mult": 1,
+       "remark": "Entry Points",
+       "follows": null
+      },
+      {
+       "id": "door-and-window-contact-sensors-r21",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-day",
+       "variantId": "skilled-technician-man-day-v1",
+       "qty": 7.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "door-and-window-contact-sensors-r22",
+       "kind": "labor",
+       "itemId": "helper-man-day",
+       "variantId": "helper-man-day-v2",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "door-and-window-contact-sensors-r30",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "voice-command-module",
+   "title": "VOICE COMMAND MODULE",
+   "order": 11,
+   "payItems": [
+    {
+     "id": "alexa-echo",
+     "description": "Alexa Echo",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "alexa-echo-r8",
+       "kind": "material",
+       "itemId": "alexa-echo-pop-unit",
+       "variantId": "alexa-echo-pop-unit-v1",
+       "qty": 19.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "alexa-echo-r21",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-device",
+       "variantId": "skilled-technician-man-device-v1",
+       "qty": 19.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "alexa-echo-r30",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "surveillance-camera",
+   "title": "SURVEILLANCE CAMERA",
+   "order": 12,
+   "payItems": [
+    {
+     "id": "cctv",
+     "description": "CCTV",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET",
+     "cpOcm": 0.0,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "cctv-r8",
+       "kind": "material",
+       "itemId": "dh-ipc-hfw2449m-as-led-b-unit",
+       "variantId": "dh-ipc-hfw2449m-as-led-b-unit-v1",
+       "qty": 11.0,
+       "mult": 1,
+       "remark": "4MP Cameras Outdoor",
+       "follows": null
+      },
+      {
+       "id": "cctv-r9",
+       "kind": "material",
+       "itemId": "ipc-hdw1239t1-a-led-s5-unit",
+       "variantId": "ipc-hdw1239t1-a-led-s5-unit-v1",
+       "qty": 6.0,
+       "mult": 1,
+       "remark": "4MP Cameras Indoor",
+       "follows": null
+      },
+      {
+       "id": "cctv-r10",
+       "kind": "material",
+       "itemId": "nvr5224-24p-4ks2-unit",
+       "variantId": "nvr5224-24p-4ks2-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "24CH 4HDD NVR",
+       "follows": null
+      },
+      {
+       "id": "cctv-r11",
+       "kind": "material",
+       "itemId": "dh-cs4010-8et-110-unit",
+       "variantId": "dh-cs4010-8et-110-unit-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "8CH 60W POE SW",
+       "follows": null
+      },
+      {
+       "id": "cctv-r12",
+       "kind": "material",
+       "itemId": "dh-pfm350-900-a-unit",
+       "variantId": "dh-pfm350-900-a-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "720W UPS",
+       "follows": null
+      },
+      {
+       "id": "cctv-r13",
+       "kind": "material",
+       "itemId": "data-cabinet-unit",
+       "variantId": "data-cabinet-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "cctv-r14",
+       "kind": "material",
+       "itemId": "cat6-roll",
+       "variantId": "cat6-roll-v1",
+       "qty": 2.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "cctv-r15",
+       "kind": "material",
+       "itemId": "4tb-hdd-unit",
+       "variantId": "4tb-hdd-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "cctv-r16",
+       "kind": "material",
+       "itemId": "misc-materials-lot",
+       "variantId": "misc-materials-lot-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "cctv-r23",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet-2",
+       "variantId": "skilled-electrician-man-outlet-2-v1",
+       "qty": 23,
+       "mult": 1,
+       "remark": "",
+       "follows": [
+        "cctv-r8",
+        "cctv-r9",
+        "cctv-r10",
+        "cctv-r11",
+        "cctv-r12",
+        "cctv-r15"
+       ]
+      },
+      {
+       "id": "cctv-r31",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v2",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smart-film",
+   "title": "SMART FILM",
+   "order": 13,
+   "payItems": [
+    {
+     "id": "smart-glass",
+     "description": "Smart Glass",
+     "um": "unit",
+     "prerequisite": "",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "smart-glass-r8",
+       "kind": "material",
+       "itemId": "91-pass-through-rate-smart-film-sqm",
+       "variantId": "91-pass-through-rate-smart-film-sqm-v1",
+       "qty": 21.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-glass-r9",
+       "kind": "material",
+       "itemId": "power-supply-unit-unit",
+       "variantId": "power-supply-unit-unit-v1",
+       "qty": 2.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-glass-r10",
+       "kind": "material",
+       "itemId": "remote-control-unit",
+       "variantId": "remote-control-unit-v1",
+       "qty": 2.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-glass-r11",
+       "kind": "material",
+       "itemId": "runner-wires-m",
+       "variantId": "runner-wires-m-v1",
+       "qty": 40.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-glass-r18",
+       "kind": "labor",
+       "itemId": "skilled-technician-helper-man-sqm",
+       "variantId": "skilled-technician-helper-man-sqm-v1",
+       "qty": 24.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "smart-glass-r25",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 5.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wifi-system",
+   "title": "WIFI SYSTEM",
+   "order": 14,
+   "payItems": [
+    {
+     "id": "wifi-system-2",
+     "description": "Wifi System",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET",
+     "cpOcm": 0.0,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "wifi-system-2-r8",
+       "kind": "material",
+       "itemId": "rg-eg210g-p-v3-unit",
+       "variantId": "rg-eg210g-p-v3-unit-v1",
+       "qty": 1.0,
+       "mult": 1,
+       "remark": "Router",
+       "follows": null
+      },
+      {
+       "id": "wifi-system-2-r9",
+       "kind": "material",
+       "itemId": "rg-es210gs-p-unit",
+       "variantId": "rg-es210gs-p-unit-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "Network Switch",
+       "follows": null
+      },
+      {
+       "id": "wifi-system-2-r10",
+       "kind": "material",
+       "itemId": "rg-rap2260-g-unit",
+       "variantId": "rg-rap2260-g-unit-v1",
+       "qty": 18.0,
+       "mult": 1,
+       "remark": "Access Points-All Areas",
+       "follows": null
+      },
+      {
+       "id": "wifi-system-2-r11",
+       "kind": "material",
+       "itemId": "cat6-roll",
+       "variantId": "cat6-roll-v2",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "wifi-system-2-r20",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-day",
+       "variantId": "skilled-technician-man-day-v1",
+       "qty": 7.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "wifi-system-2-r21",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet-2",
+       "variantId": "skilled-electrician-man-outlet-2-v2",
+       "qty": 22,
+       "mult": 1,
+       "remark": "",
+       "follows": [
+        "wifi-system-2-r8",
+        "wifi-system-2-r9",
+        "wifi-system-2-r10"
+       ]
+      },
+      {
+       "id": "wifi-system-2-r29",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 7.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "smart-automatic-gate",
+   "title": "SMART AUTOMATIC GATE",
+   "order": 15,
+   "payItems": [
+    {
+     "id": "lpr-automatic-gate",
+     "description": "LPR Automatic Gate",
+     "um": "unit",
+     "prerequisite": "CONVENIENCE OUTLET",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "lpr-automatic-gate-r8",
+       "kind": "material",
+       "itemId": "gate-motor-unit",
+       "variantId": "gate-motor-unit-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r9",
+       "kind": "material",
+       "itemId": "signal-light-beacon-unit",
+       "variantId": "signal-light-beacon-unit-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r10",
+       "kind": "material",
+       "itemId": "keyfob-unit",
+       "variantId": "keyfob-unit-v1",
+       "qty": 6.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r11",
+       "kind": "material",
+       "itemId": "outdoor-waterproof-cabinet-mcb-unit",
+       "variantId": "outdoor-waterproof-cabinet-mcb-unit-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r12",
+       "kind": "material",
+       "itemId": "anti-collission-sensor-lot",
+       "variantId": "anti-collission-sensor-lot-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r13",
+       "kind": "material",
+       "itemId": "lpr-camera-unit",
+       "variantId": "lpr-camera-unit-v1",
+       "qty": 3.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r22",
+       "kind": "labor",
+       "itemId": "skilled-technician-man-day",
+       "variantId": "skilled-technician-man-day-v1",
+       "qty": 15.0,
+       "mult": 1.0,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r23",
+       "kind": "labor",
+       "itemId": "skilled-electrician-man-outlet-2",
+       "variantId": "skilled-electrician-man-outlet-2-v2",
+       "qty": 9.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "lpr-automatic-gate-r31",
+       "kind": "equipment",
+       "itemId": "miscelaneous-tools-day",
+       "variantId": "miscelaneous-tools-day-v1",
+       "qty": 15.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "supplementary-electrical-wirings",
+   "title": "SUPPLEMENTARY ELECTRICAL WIRINGS",
+   "order": 16,
+   "payItems": [
+    {
+     "id": "wirings-conduits-other-supplementary-prereqs",
+     "description": "Wirings, conduits, other supplementary prereqs",
+     "um": "unit",
+     "prerequisite": "",
+     "cpOcm": 0.15,
+     "lumpSum": false,
+     "lumpPrice": 0,
+     "headings": {
+      "material": "MATERIALS",
+      "labor": "LABOR",
+      "equipment": "EQUIPMENT"
+     },
+     "lines": [
+      {
+       "id": "wirings-conduits-other-supplementary-prereqs-r8",
+       "kind": "material",
+       "itemId": "14-awg-thhn-roll",
+       "variantId": "14-awg-thhn-roll-v1",
+       "qty": 6.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "wirings-conduits-other-supplementary-prereqs-r9",
+       "kind": "material",
+       "itemId": "12-awg-tw-roll",
+       "variantId": "12-awg-tw-roll-v1",
+       "qty": 4.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "wirings-conduits-other-supplementary-prereqs-r10",
+       "kind": "material",
+       "itemId": "3-4-flexible-conduit-roll",
+       "variantId": "3-4-flexible-conduit-roll-v1",
+       "qty": 6.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      },
+      {
+       "id": "wirings-conduits-other-supplementary-prereqs-r11",
+       "kind": "material",
+       "itemId": "3-4-pvc-conduit-m",
+       "variantId": "3-4-pvc-conduit-m-v1",
+       "qty": 70.0,
+       "mult": 1,
+       "remark": "",
+       "follows": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "tiers": []
+}
