@@ -34,21 +34,23 @@ const TABLE = {
 };
 const th = t => ({ text: t, style: 'th' });
 
-// ---------- icons (24×24 line icons, stroke color filled in) ----------
+// ---------- graphics: filled flat vectors (no strokes) ----------
+// Service icons: white solid glyphs (24×24) on an orange round badge.
+const W = '#FFFFFF';
 const ICONS = {
-  bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V17h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>',
-  climate: '<path d="M12 2v20M4.9 6l14.2 12M4.9 18L19.1 6M9 3.5l3 2 3-2M9 20.5l3-2 3 2"/>',
-  lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4M12 15v2"/>',
-  camera: '<path d="M3 7h12l3 3h3v4h-3l-3 3H3z"/><circle cx="9" cy="12" r="2.5"/>',
-  wifi: '<path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/>',
-  curtain: '<path d="M3 3h18M5 3v18M19 3v18M5 3c0 6 4 9 6 18M19 3c0 6-4 9-6 18"/>',
-  gate: '<path d="M3 21V5M21 21V5M3 9h18M3 15h18M8 9v12M13 9v12M18 9v12"/>',
-  shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
-  mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/>',
-  panel: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/>',
-  film: '<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/>',
-  tools: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
-  house: '<path d="M3 11l9-8 9 8M5 9.5V21h14V9.5M10 21v-6h4v6"/>',
+  bulb: `<circle cx="12" cy="9" r="6.2" fill="${W}"/><rect x="9" y="14.5" width="6" height="3.2" rx="1" fill="${W}"/><rect x="10" y="18.6" width="4" height="2.4" rx="1.2" fill="${W}"/>`,
+  climate: `<g fill="${W}"><rect x="10.9" y="2" width="2.2" height="20" rx="1.1"/><rect x="10.9" y="2" width="2.2" height="20" rx="1.1" transform="rotate(60 12 12)"/><rect x="10.9" y="2" width="2.2" height="20" rx="1.1" transform="rotate(-60 12 12)"/><circle cx="12" cy="12" r="3.2"/></g>`,
+  lock: `<g fill="${W}"><rect x="5" y="10" width="14" height="11" rx="2.2"/><path d="M7.6 10V7.2a4.4 4.4 0 0 1 8.8 0V10h-2.4V7.2a2 2 0 0 0-4 0V10z"/></g><circle cx="12" cy="15.2" r="1.6" fill="#F26B1D"/>`,
+  camera: `<path d="M2.5 7.5h11.5l4 3.2h3.5v3.6H18l-4 3.2H2.5z" fill="${W}"/><circle cx="8.5" cy="12.5" r="2.6" fill="#F26B1D"/>`,
+  wifi: `<g fill="${W}"><path d="M3.5 10.2a12 12 0 0 1 17 0l-1.8 1.8a9.5 9.5 0 0 0-13.4 0z"/><path d="M6.8 13.5a7.4 7.4 0 0 1 10.4 0l-1.8 1.8a4.9 4.9 0 0 0-6.8 0z"/><circle cx="12" cy="18.2" r="2"/></g>`,
+  curtain: `<g fill="${W}"><rect x="3" y="3" width="18" height="2.4" rx="1.2"/><path d="M4.5 5.4h6.5c0 6-2.2 11.3-6.5 15.6z"/><path d="M19.5 5.4H13c0 6 2.2 11.3 6.5 15.6z"/></g>`,
+  gate: `<g fill="${W}"><rect x="3" y="4" width="2.6" height="17" rx="1"/><rect x="18.4" y="4" width="2.6" height="17" rx="1"/><rect x="3" y="7" width="18" height="2.4"/><rect x="7.6" y="9" width="2" height="12"/><rect x="11" y="9" width="2" height="12"/><rect x="14.4" y="9" width="2" height="12"/></g>`,
+  shield: `<path d="M12 2.2l8.2 3.1v6.1c0 5.4-3.5 9-8.2 10.9-4.7-1.9-8.2-5.5-8.2-10.9V5.3z" fill="${W}"/><path d="M10.6 15.2l-3-3 1.6-1.6 1.4 1.4 4.2-4.2 1.6 1.6z" fill="#F26B1D"/>`,
+  mic: `<g fill="${W}"><rect x="8.8" y="2" width="6.4" height="12.4" rx="3.2"/><path d="M5 11h2.2a4.8 4.8 0 0 0 9.6 0H19a7 7 0 0 1-5.9 6.9V20h3v2.2H7.9V20h3v-2.1A7 7 0 0 1 5 11z"/></g>`,
+  panel: `<rect x="4" y="2.5" width="16" height="19" rx="2.4" fill="${W}"/><g fill="#F26B1D"><rect x="7" y="6" width="10" height="2.2" rx="1"/><rect x="7" y="10.2" width="10" height="2.2" rx="1"/><circle cx="12" cy="17" r="1.8"/></g>`,
+  film: `<rect x="4" y="3" width="16" height="18" rx="1.6" fill="${W}"/><g fill="#F26B1D"><rect x="11.1" y="3" width="1.8" height="18"/><rect x="4" y="11.1" width="16" height="1.8"/></g>`,
+  tools: `<path d="M21 7.6a5.4 5.4 0 0 1-7.4 5L6.4 19.8a2.1 2.1 0 0 1-3-3l7.2-7.2A5.4 5.4 0 0 1 17.4 2.6l-3.1 3.1.9 2.9 2.9.9z" fill="${W}"/>`,
+  house: `<path d="M12 2.8l9.4 8.3H19v9.9h-5.2v-6.2h-3.6V21H5v-9.9H2.6z" fill="${W}"/>`,
 };
 const ICON_RULES = [
   [/light|switch|lamp/i, 'bulb'], [/climate|aircon|\bac\b|hvac/i, 'climate'], [/lock|door/i, 'lock'],
@@ -57,17 +59,31 @@ const ICON_RULES = [
   [/panel|control|tablet|screen/i, 'panel'], [/film|glass|window/i, 'film'], [/wiring|electrical|requirement|condition|assessment/i, 'tools'],
 ];
 const iconFor = title => ICON_RULES.find(([re]) => re.test(title))?.[1] ?? 'house';
-const icon = (name, color, size) => ({
-  svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]}</svg>`,
+const icon = (name, size) => ({
+  svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#F26B1D"/><g transform="translate(4.8 4.8) scale(0.6)">${ICONS[name]}</g></svg>`,
   width: size,
 });
 
-const HOUSE_ART = `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200" fill="none" stroke="#F26B1D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M30 100 L120 30 L210 100"/><path d="M48 86 V180 H192 V86"/><path d="M104 180 V136 H136 V180"/>
-  <rect x="62" y="108" width="28" height="24" rx="2"/><rect x="150" y="108" width="28" height="24" rx="2"/>
-  <path d="M76 108 V132 M62 120 H90 M164 108 V132 M150 120 H178"/>
-  <path d="M96 64 a34 34 0 0 1 48 0" opacity=".9"/><path d="M104 74 a22 22 0 0 1 32 0" opacity=".9"/><circle cx="120" cy="84" r="3" fill="#F26B1D"/>
-  <path d="M10 180 H230" opacity=".6"/>
+// Cover illustration: a lit smart home with a phone and connected devices, flat filled shapes only.
+const HOUSE_ART = `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240">
+  <circle cx="170" cy="118" r="108" fill="#FFF1E6"/>
+  <ellipse cx="165" cy="214" rx="140" ry="12" fill="#F6E4D6"/>
+  <circle cx="58" cy="168" r="30" fill="#FBC9A3"/><circle cx="44" cy="150" r="20" fill="#F8B587"/><rect x="54" y="176" width="8" height="36" rx="3" fill="#B98A6A"/>
+  <rect x="96" y="40" width="18" height="56" fill="#A8360B"/>
+  <rect x="82" y="104" width="168" height="108" fill="#FFFFFF"/>
+  <rect x="216" y="104" width="34" height="108" fill="#F7EDE6"/>
+  <path d="M64 110 L166 34 L268 110 Z" fill="#F26B1D"/>
+  <path d="M64 110 L166 34 L170 37 L72 112 Z" fill="#FF8A45"/>
+  <rect x="62" y="108" width="208" height="8" rx="3" fill="#C2410C"/>
+  <rect x="100" y="128" width="40" height="34" rx="3" fill="#FFC85C"/><rect x="118.5" y="128" width="3" height="34" fill="#FFFFFF"/><rect x="100" y="143.5" width="40" height="3" fill="#FFFFFF"/>
+  <rect x="180" y="128" width="40" height="34" rx="3" fill="#FFC85C"/><rect x="198.5" y="128" width="3" height="34" fill="#FFFFFF"/><rect x="180" y="143.5" width="40" height="3" fill="#FFFFFF"/>
+  <rect x="148" y="162" width="28" height="50" rx="3" fill="#3A3F47"/><circle cx="170" cy="188" r="2.2" fill="#FFC85C"/>
+  <circle cx="166" cy="80" r="11" fill="#FFFFFF"/><path d="M160 80 a6 6 0 0 1 12 0 l-2 0 a4 4 0 0 0 -8 0 z" fill="#F26B1D"/><circle cx="166" cy="82" r="1.8" fill="#F26B1D"/>
+  <g transform="translate(266 120)"><rect x="0" y="0" width="38" height="66" rx="7" fill="#1F2328"/><rect x="4" y="8" width="30" height="48" rx="3" fill="#FFF1E6"/>
+    <rect x="8" y="14" width="22" height="9" rx="2" fill="#F26B1D"/><rect x="8" y="27" width="10" height="10" rx="2" fill="#FFC85C"/><rect x="20" y="27" width="10" height="10" rx="2" fill="#FBC9A3"/>
+    <rect x="8" y="41" width="22" height="9" rx="2" fill="#F8B587"/></g>
+  <g transform="translate(236 46)"><circle cx="16" cy="16" r="16" fill="#F26B1D"/><circle cx="16" cy="14" r="6" fill="#FFFFFF"/><rect x="13" y="19" width="6" height="4" rx="1" fill="#FFFFFF"/></g>
+  <g transform="translate(30 70)"><circle cx="16" cy="16" r="16" fill="#C2410C"/><circle cx="16" cy="16" r="9" fill="#FFFFFF"/><rect x="15" y="9" width="2" height="8" rx="1" fill="#C2410C"/><circle cx="16" cy="17" r="2.4" fill="#C2410C"/></g>
 </svg>`;
 
 // ---------- shared blocks ----------
@@ -111,11 +127,10 @@ function header(q, settings, title) {
 }
 const arr = v => (Array.isArray(v) ? v : []);
 
-// Outlined label, e.g. the tier name.
-const OUTLINE = { hLineWidth: () => 0.8, vLineWidth: () => 0.8, hLineColor: () => C.orange, vLineColor: () => C.orange };
+// Soft filled label, e.g. the tier name.
 const pill = (text, alignment = 'left') => ({
-  table: { body: [[{ text, bold: true, fontSize: 8.5, color: C.deep, characterSpacing: 0.8, margin: [5, 0.5, 5, 0.5] }]] },
-  layout: OUTLINE, alignment, margin: [0, 4, 0, 0],
+  table: { body: [[{ text, bold: true, fontSize: 8.5, color: C.deep, fillColor: C.soft, characterSpacing: 0.8, margin: [6, 1.5, 6, 1.5] }]] },
+  layout: 'noBorders', alignment, margin: [0, 4, 0, 0],
   ...(alignment === 'right' ? { width: 'auto' } : {}),
 });
 
@@ -155,7 +170,7 @@ function coverPage(q, settings, totals) {
     { text: s(q.client.project) || 'Smart Home', fontSize: 15, color: C.ink, margin: [0, 0, 200, 3] },
     { text: s(q.client.address), color: C.muted, margin: [0, 0, 220, 8] },
     pill(s(q.tierName).toUpperCase()),
-    { svg: HOUSE_ART, width: 150, absolutePosition: { x: 400, y: 170 } },
+    { svg: HOUSE_ART, width: 225, absolutePosition: { x: 340, y: 168 } },
     // Lower half sits on the white part of the cover at a fixed spot, whatever the title length.
     {
       absolutePosition: { x: 40, y: 478 },
@@ -185,8 +200,8 @@ function coverPage(q, settings, totals) {
           stack: [{ text: 'TOTAL INVESTMENT', style: 'kicker' },
             { text: peso(totals.grandTotal), color: C.ink, bold: true, fontSize: 20, margin: [0, 2, 0, 2] },
             { text: 'Full breakdown and payment terms on the following pages', color: C.muted, fontSize: 8 }],
-          margin: [12, 10, 12, 10],
-        }]] }, layout: OUTLINE },
+          margin: [14, 12, 14, 12], fillColor: C.soft,
+        }]] }, layout: 'noBorders' },
       ],
     },
   ];
@@ -213,12 +228,12 @@ function includedPage(q, settings, totals) {
     return {
       unbreakable: true, margin: [0, 0, 0, 8],
       table: { widths: [34, '*', 90], body: [[
-        { ...icon(iconFor(svc.title), C.orange, 18), margin: [2, 1, 0, 0] },
+        { ...icon(iconFor(svc.title), 22), margin: [2, 0, 0, 0] },
         { stack: [{ text: s(svc.title), bold: true, fontSize: 10 }, { ul: bullets, markerColor: C.muted, color: C.ink, margin: [0, 3, 0, 0] }] },
         { text: peso(total), alignment: 'right', bold: true, color: C.ink },
       ]] },
-      layout: { hLineWidth: (i, node) => (i === node.table.body.length ? 0.5 : 0), hLineColor: () => C.line, vLineWidth: i => (i === 0 ? 2 : 0), vLineColor: () => C.orange,
-        paddingTop: () => 7, paddingBottom: () => 9, paddingLeft: () => 8, paddingRight: () => 4 },
+      layout: { hLineWidth: () => 0, vLineWidth: () => 0, fillColor: () => '#FAF7F4',
+        paddingTop: () => 8, paddingBottom: () => 9, paddingLeft: () => 8, paddingRight: () => 10 },
     };
   });
   const remarks = s(q.remarks).split('\n').map(x => x.trim()).filter(Boolean);
@@ -231,10 +246,10 @@ function includedPage(q, settings, totals) {
     {
       margin: [0, 14, 0, 0], unbreakable: true,
       table: { widths: ['*', 'auto'], body: [[
-        { text: 'TOTAL INVESTMENT', bold: true, color: C.ink, margin: [0, 7, 0, 7] },
-        { text: peso(totals.grandTotal), bold: true, fontSize: 14, color: C.deep, alignment: 'right', margin: [0, 4, 0, 4] },
+        { text: 'TOTAL INVESTMENT', bold: true, color: C.ink, fillColor: C.soft, margin: [10, 8, 0, 8] },
+        { text: peso(totals.grandTotal), bold: true, fontSize: 14, color: C.deep, fillColor: C.soft, alignment: 'right', margin: [0, 5, 10, 5] },
       ]] },
-      layout: { hLineWidth: i => (i === 0 ? 1.2 : 0.5), hLineColor: i => (i === 0 ? C.orange : C.line), vLineWidth: () => 0 },
+      layout: 'noBorders',
     },
     settings.footerNote ? { text: settings.footerNote, italics: true, color: C.muted, fontSize: 8, margin: [0, 10, 0, 0] } : '',
   ];
@@ -318,7 +333,7 @@ function dupaPage(q, svc, p, no, t) {
   body.push(sub(`TOTAL UNIT COST FOR ${name}`, t.total, { bold: true, color: C.deep, fillColor: C.soft }));
   return [
     { text: '', pageBreak: 'before' },
-    { columnGap: 8, columns: [{ ...icon(iconFor(svc.title), C.orange, 20), width: 20 }, { width: '*', text: `${name}: DETAILED UNIT PRICE ANALYSIS (EXHIBIT B)`, style: 'title2', alignment: 'left', margin: [0, 3, 0, 8] }] },
+    { columnGap: 8, columns: [{ ...icon(iconFor(svc.title), 20), width: 20 }, { width: '*', text: `${name}: DETAILED UNIT PRICE ANALYSIS (EXHIBIT B)`, style: 'title2', alignment: 'left', margin: [0, 3, 0, 8] }] },
     { table: { widths: [70, '*', 30, 120], body: [
       ['PAY ITEM NO.', 'PAY ITEM DESCRIPTION', 'QTY', 'PREREQUISITE'].map(th),
       [no, s(p.description).toUpperCase(), '1', s(p.prerequisite)],
@@ -347,11 +362,8 @@ export function buildDocDefinition(quote, settings) {
       title2: { bold: true, fontSize: 11.5, alignment: 'center', margin: [0, 4, 0, 8], color: C.ink },
       kicker: { fontSize: 8, bold: true, color: C.orange, characterSpacing: 1, margin: [0, 0, 0, 2] },
     },
-    // A thin orange band on every page; the cover adds a rule above its details.
-    background: (page, size) => ({ canvas: [
-      { type: 'rect', x: 0, y: 0, w: size.width, h: 5, color: C.orange },
-      ...(page === 1 ? [{ type: 'line', x1: 40, y1: 452, x2: size.width - 40, y2: 452, lineWidth: 0.6, lineColor: C.line }] : []),
-    ] }),
+    // A thin orange band across the top of every page.
+    background: (page, size) => ({ canvas: [{ type: 'rect', x: 0, y: 0, w: size.width, h: 5, color: C.orange }] }),
     footer: (page, pages) => (page === 1 ? { text: contacts, alignment: 'center', fontSize: 7.5, color: C.muted, margin: [40, 16, 40, 0] } : {
       margin: [40, 10, 40, 0],
       stack: [
