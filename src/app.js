@@ -1,6 +1,6 @@
 import { loadAll, put, del, putSettings, replaceAll } from './store.js';
 import { makeBackup, parseBackup, mergeBackup, downloadJson } from './backup.js';
-import { $, today, flushAll } from './ui/dom.js';
+import { $, esc, today, flushAll } from './ui/dom.js';
 import * as settingsView from './ui/settings.js';
 import * as catalogueView from './ui/catalogue.js';
 import * as servicesView from './ui/services.js';
@@ -42,7 +42,7 @@ async function route() {
     await view.render(main, ctx, id);
   } catch (e) {
     console.error(e);
-    main.innerHTML = `<div class="card error">Something went wrong: ${e.message}</div>`;
+    main.innerHTML = `<div class="card error">Something went wrong: ${esc(e.message)}</div>`;
   }
 }
 addEventListener('hashchange', route);
