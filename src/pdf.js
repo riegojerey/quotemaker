@@ -2,7 +2,8 @@
 // cover → what's included → BOQ → Proforma Invoice → one DUPA per pay item. Tables keep the Casa layout.
 import { quoteTotals, lineQty, lineTotal, fmtNum, num } from './calc.js';
 
-const C = { orange: '#F26B1D', deep: '#C2410C', soft: '#FFF1E8', zebra: '#FFF8F3', ink: '#1F2328', muted: '#6B6F76', line: '#EFE3D9' };
+// Orange is an accent only (rules, labels, icons); pages stay white and text dark so the document reads as formal.
+const C = { orange: '#F26B1D', deep: '#C2410C', soft: '#FFF4EC', zebra: '#FAFAFA', ink: '#1F2328', muted: '#6B6F76', line: '#E6E1DC' };
 const PAGE_W = 595.28;
 
 const fmtDate = iso => {
@@ -61,11 +62,11 @@ const icon = (name, color, size) => ({
   width: size,
 });
 
-const HOUSE_ART = `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+const HOUSE_ART = `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200" fill="none" stroke="#F26B1D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M30 100 L120 30 L210 100"/><path d="M48 86 V180 H192 V86"/><path d="M104 180 V136 H136 V180"/>
   <rect x="62" y="108" width="28" height="24" rx="2"/><rect x="150" y="108" width="28" height="24" rx="2"/>
   <path d="M76 108 V132 M62 120 H90 M164 108 V132 M150 120 H178"/>
-  <path d="M96 64 a34 34 0 0 1 48 0" opacity=".9"/><path d="M104 74 a22 22 0 0 1 32 0" opacity=".9"/><circle cx="120" cy="84" r="3" fill="#FFFFFF"/>
+  <path d="M96 64 a34 34 0 0 1 48 0" opacity=".9"/><path d="M104 74 a22 22 0 0 1 32 0" opacity=".9"/><circle cx="120" cy="84" r="3" fill="#F26B1D"/>
   <path d="M10 180 H230" opacity=".6"/>
 </svg>`;
 
@@ -110,10 +111,11 @@ function header(q, settings, title) {
 }
 const arr = v => (Array.isArray(v) ? v : []);
 
-// Orange rounded label, e.g. the tier name.
-const pill = (text, alignment = 'left', inverse = false) => ({
-  table: { body: [[{ text, bold: true, fontSize: 9, color: inverse ? C.orange : '#FFFFFF', fillColor: inverse ? '#FFFFFF' : C.orange, margin: [6, 1, 6, 1] }]] },
-  layout: 'noBorders', alignment, margin: [0, 4, 0, 0],
+// Outlined label, e.g. the tier name.
+const OUTLINE = { hLineWidth: () => 0.8, vLineWidth: () => 0.8, hLineColor: () => C.orange, vLineColor: () => C.orange };
+const pill = (text, alignment = 'left') => ({
+  table: { body: [[{ text, bold: true, fontSize: 8.5, color: C.deep, characterSpacing: 0.8, margin: [5, 0.5, 5, 0.5] }]] },
+  layout: OUTLINE, alignment, margin: [0, 4, 0, 0],
   ...(alignment === 'right' ? { width: 'auto' } : {}),
 });
 
@@ -140,7 +142,7 @@ function signature(q) {
 }
 
 const sectionTitle = text => ({
-  table: { widths: [4, '*'], body: [[{ text: '', fillColor: C.orange }, { text, bold: true, fontSize: 13, color: C.ink, margin: [6, 2, 0, 2] }]] },
+  table: { widths: [3, '*'], body: [[{ text: '', fillColor: C.orange }, { text, bold: true, fontSize: 13, color: C.ink, margin: [6, 1, 0, 1] }]] },
   layout: 'noBorders', margin: [0, 0, 0, 10],
 });
 
@@ -148,12 +150,12 @@ const sectionTitle = text => ({
 function coverPage(q, settings, totals) {
   const p = q.preparer || {};
   return [
-    { margin: [0, 6, 0, 0], ...brand(settings, { color: '#FFFFFF', logoWidth: 130 }) },
-    { text: 'SMART HOME PROPOSAL', fontSize: 28, bold: true, color: '#FFFFFF', margin: [0, 70, 0, 6], characterSpacing: 1 },
-    { text: s(q.client.project) || 'Smart Home', fontSize: 18, color: '#FFFFFF', margin: [0, 0, 220, 4] },
-    { text: s(q.client.address), color: '#FFFFFF', opacity: 0.9, margin: [0, 0, 240, 10] },
-    pill(s(q.tierName).toUpperCase(), 'left', true),
-    { svg: HOUSE_ART, width: 210, absolutePosition: { x: 350, y: 150 } },
+    { margin: [0, 6, 0, 0], ...brand(settings, { logoWidth: 130 }) },
+    { text: 'SMART HOME PROPOSAL', fontSize: 24, bold: true, color: C.ink, margin: [0, 122, 0, 6] },
+    { text: s(q.client.project) || 'Smart Home', fontSize: 15, color: C.ink, margin: [0, 0, 200, 3] },
+    { text: s(q.client.address), color: C.muted, margin: [0, 0, 220, 8] },
+    pill(s(q.tierName).toUpperCase()),
+    { svg: HOUSE_ART, width: 150, absolutePosition: { x: 400, y: 170 } },
     // Lower half sits on the white part of the cover at a fixed spot, whatever the title length.
     {
       absolutePosition: { x: 40, y: 478 },
@@ -180,11 +182,11 @@ function coverPage(q, settings, totals) {
           { text: 'CONTRACT CODE', style: 'kicker', margin: [0, 10, 0, 0] }, { text: s(q.code) },
         ] },
         { width: 257, table: { widths: ['*'], body: [[{
-          stack: [{ text: 'TOTAL INVESTMENT', color: '#FFFFFF', bold: true, fontSize: 9, characterSpacing: 1 },
-            { text: peso(totals.grandTotal), color: '#FFFFFF', bold: true, fontSize: 24, margin: [0, 4, 0, 2] },
-            { text: 'Full breakdown and payment terms on the following pages', color: '#FFFFFF', fontSize: 8, opacity: 0.9 }],
-          fillColor: C.orange, margin: [14, 12, 14, 12],
-        }]] }, layout: 'noBorders' },
+          stack: [{ text: 'TOTAL INVESTMENT', style: 'kicker' },
+            { text: peso(totals.grandTotal), color: C.ink, bold: true, fontSize: 20, margin: [0, 2, 0, 2] },
+            { text: 'Full breakdown and payment terms on the following pages', color: C.muted, fontSize: 8 }],
+          margin: [12, 10, 12, 10],
+        }]] }, layout: OUTLINE },
       ],
     },
   ];
@@ -211,11 +213,12 @@ function includedPage(q, settings, totals) {
     return {
       unbreakable: true, margin: [0, 0, 0, 8],
       table: { widths: [34, '*', 90], body: [[
-        { ...icon(iconFor(svc.title), C.orange, 22), margin: [4, 2, 0, 0] },
-        { stack: [{ text: s(svc.title), bold: true, fontSize: 10.5 }, { ul: bullets, markerColor: C.orange, color: C.ink, margin: [0, 3, 0, 0] }] },
-        { text: peso(total), alignment: 'right', bold: true, color: C.deep },
+        { ...icon(iconFor(svc.title), C.orange, 18), margin: [2, 1, 0, 0] },
+        { stack: [{ text: s(svc.title), bold: true, fontSize: 10 }, { ul: bullets, markerColor: C.muted, color: C.ink, margin: [0, 3, 0, 0] }] },
+        { text: peso(total), alignment: 'right', bold: true, color: C.ink },
       ]] },
-      layout: { hLineWidth: () => 0, vLineWidth: () => 0, fillColor: () => C.soft, paddingTop: () => 8, paddingBottom: () => 8, paddingLeft: () => 6, paddingRight: () => 8 },
+      layout: { hLineWidth: (i, node) => (i === node.table.body.length ? 0.5 : 0), hLineColor: () => C.line, vLineWidth: i => (i === 0 ? 2 : 0), vLineColor: () => C.orange,
+        paddingTop: () => 7, paddingBottom: () => 9, paddingLeft: () => 8, paddingRight: () => 4 },
     };
   });
   const remarks = s(q.remarks).split('\n').map(x => x.trim()).filter(Boolean);
@@ -224,14 +227,14 @@ function includedPage(q, settings, totals) {
     sectionTitle("WHAT'S INCLUDED"),
     { text: `Your ${s(q.tierName)} smart home package, service by service.`, color: C.muted, margin: [0, -4, 0, 12] },
     ...cards,
-    remarks.length ? { margin: [0, 6, 0, 0], stack: [{ text: 'HIGHLIGHTS', style: 'kicker' }, { ul: remarks, markerColor: C.orange, margin: [0, 4, 0, 0] }] } : '',
+    remarks.length ? { margin: [0, 6, 0, 0], stack: [{ text: 'HIGHLIGHTS', style: 'kicker' }, { ul: remarks, markerColor: C.muted, margin: [0, 4, 0, 0] }] } : '',
     {
       margin: [0, 14, 0, 0], unbreakable: true,
       table: { widths: ['*', 'auto'], body: [[
-        { text: 'TOTAL INVESTMENT', bold: true, color: '#FFFFFF', fillColor: C.orange, margin: [10, 8, 0, 8] },
-        { text: peso(totals.grandTotal), bold: true, fontSize: 16, color: '#FFFFFF', fillColor: C.orange, alignment: 'right', margin: [0, 5, 10, 5] },
+        { text: 'TOTAL INVESTMENT', bold: true, color: C.ink, margin: [0, 7, 0, 7] },
+        { text: peso(totals.grandTotal), bold: true, fontSize: 14, color: C.deep, alignment: 'right', margin: [0, 4, 0, 4] },
       ]] },
-      layout: 'noBorders',
+      layout: { hLineWidth: i => (i === 0 ? 1.2 : 0.5), hLineColor: i => (i === 0 ? C.orange : C.line), vLineWidth: () => 0 },
     },
     settings.footerNote ? { text: settings.footerNote, italics: true, color: C.muted, fontSize: 8, margin: [0, 10, 0, 0] } : '',
   ];
@@ -248,15 +251,15 @@ function boqTable(q, totals) {
     const p = svc.payItems[it.payItemIdx];
     if (it.section !== lastSection) {
       lastSection = it.section;
-      body.push([{ text: `${it.section}.0`, bold: true, color: C.deep, fillColor: C.soft }, { text: svc.title, bold: true, colSpan: 8, color: C.deep, fillColor: C.soft }, '', '', '', '', '', '', '']);
+      body.push([{ text: `${it.section}.0`, bold: true, color: C.deep }, { text: svc.title, bold: true, colSpan: 8, color: C.deep }, '', '', '', '', '', '', '']);
     }
     const t = it.totals;
     body.push([it.no, p.description, p.um, '1', ...[t.materials, t.labor, t.equipment, t.total].map(v => ({ text: fmtNum(v), alignment: 'right' })), '']);
   }
   body.push(
     [{ text: 'SUBTOTAL (PHP):', colSpan: 7, alignment: 'right', bold: true }, '', '', '', '', '', '', { text: fmtNum(totals.grandTotal), alignment: 'right', bold: true }, ''],
-    [{ text: 'GRAND TOTAL (PHP)', colSpan: 7, alignment: 'right', bold: true, fontSize: 10, color: '#FFFFFF', fillColor: C.orange }, '', '', '', '', '', '',
-      { text: fmtNum(totals.grandTotal), alignment: 'right', bold: true, fontSize: 10, color: '#FFFFFF', fillColor: C.orange }, { text: '', fillColor: C.orange }],
+    [{ text: 'GRAND TOTAL (PHP)', colSpan: 7, alignment: 'right', bold: true, fontSize: 10, color: C.deep, fillColor: C.soft }, '', '', '', '', '', '',
+      { text: fmtNum(totals.grandTotal), alignment: 'right', bold: true, fontSize: 10, color: C.deep, fillColor: C.soft }, { text: '', fillColor: C.soft }],
   );
   return { table: { headerRows: 1, widths: [24, '*', 26, 20, 56, 50, 50, 64, 40], body }, layout: TABLE, fontSize: 7.5 };
 }
@@ -306,13 +309,13 @@ function dupaPage(q, svc, p, no, t) {
   const sub = (label, v, opts = {}) => ['', { text: label, colSpan: 4, alignment: 'right', ...opts }, '', '', '', { text: fmtNum(v), alignment: 'right', ...opts }, { text: '', fillColor: opts.fillColor }];
   const body = [['ITEM', 'DESCRIPTION', 'QTY', 'U.M.', 'UNIT COST', 'TOTAL COST', 'REMARKS'].map(th)];
   [['material', '1.0', t.materials], ['labor', '2.0', t.labor], ['equipment', '3.0', t.equipment]].forEach(([k, n, v]) => {
-    body.push([{ text: n, bold: true, color: C.deep, fillColor: C.soft }, { text: s(p.headings?.[k]), bold: true, colSpan: 6, color: C.deep, fillColor: C.soft }, '', '', '', '', '']);
+    body.push([{ text: n, bold: true, color: C.deep }, { text: s(p.headings?.[k]), bold: true, colSpan: 6, color: C.deep }, '', '', '', '', '']);
     body.push(...lineRows(k));
     body.push(sub('SUBTOTAL', v, { color: C.muted }));
   });
   body.push(sub('SUBTOTAL', t.subtotal, { bold: true }));
   if (num(p.cpOcm)) body.push(sub(`CP,OCM ${pct(p.cpOcm)}`, t.cpOcm));
-  body.push(sub(`TOTAL UNIT COST FOR ${name}`, t.total, { bold: true, color: '#FFFFFF', fillColor: C.orange }));
+  body.push(sub(`TOTAL UNIT COST FOR ${name}`, t.total, { bold: true, color: C.deep, fillColor: C.soft }));
   return [
     { text: '', pageBreak: 'before' },
     { columnGap: 8, columns: [{ ...icon(iconFor(svc.title), C.orange, 20), width: 20 }, { width: '*', text: `${name}: DETAILED UNIT PRICE ANALYSIS (EXHIBIT B)`, style: 'title2', alignment: 'left', margin: [0, 3, 0, 8] }] },
@@ -340,14 +343,15 @@ export function buildDocDefinition(quote, settings) {
     defaultStyle: { fontSize: 9, lineHeight: 1.15, color: C.ink },
     styles: {
       h: { bold: true, fontSize: 9, color: C.deep, margin: [0, 0, 0, 4], characterSpacing: 0.5 },
-      th: { bold: true, fillColor: C.orange, color: '#FFFFFF', fontSize: 7.5 },
+      th: { bold: true, fillColor: C.soft, color: C.deep, fontSize: 7.5 },
       title2: { bold: true, fontSize: 11.5, alignment: 'center', margin: [0, 4, 0, 8], color: C.ink },
       kicker: { fontSize: 8, bold: true, color: C.orange, characterSpacing: 1, margin: [0, 0, 0, 2] },
     },
-    // Cover: orange top half. Other pages: a thin orange band.
-    background: (page, size) => (page === 1
-      ? { canvas: [{ type: 'rect', x: 0, y: 0, w: size.width, h: 440, color: C.orange }, { type: 'rect', x: 0, y: 440, w: size.width, h: 6, color: C.deep }] }
-      : { canvas: [{ type: 'rect', x: 0, y: 0, w: size.width, h: 8, color: C.orange }] }),
+    // A thin orange band on every page; the cover adds a rule above its details.
+    background: (page, size) => ({ canvas: [
+      { type: 'rect', x: 0, y: 0, w: size.width, h: 5, color: C.orange },
+      ...(page === 1 ? [{ type: 'line', x1: 40, y1: 452, x2: size.width - 40, y2: 452, lineWidth: 0.6, lineColor: C.line }] : []),
+    ] }),
     footer: (page, pages) => (page === 1 ? { text: contacts, alignment: 'center', fontSize: 7.5, color: C.muted, margin: [40, 16, 40, 0] } : {
       margin: [40, 10, 40, 0],
       stack: [
