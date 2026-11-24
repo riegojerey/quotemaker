@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { buildDocDefinition, pdfFilename } from '../src/pdf.js';
 import { quoteTotals, fmtNum } from '../src/calc.js';
 import { DEFAULT_SETTINGS } from '../src/model.js';
+import { aboutFor } from '../src/about.js';
 
 // Collect every text string and node type in a pdfmake content tree.
 function walk(node, out = { texts: [], images: 0 }) {
@@ -55,7 +56,7 @@ test('signature appears on every page that has a Prepared By block', () => {
   const def = buildDocDefinition(fixture(), DEFAULT_SETTINGS);
   const { texts, images } = walk(def);
   assert.equal(images, texts.filter(t => t === 'Prepared By:').length);
-  assert.equal(images, 3);
+  assert.equal(images, 3); // BOQ, proforma, one DUPA (cover and summary have no signature)
 });
 
 test('missing signature, empty remarks and a 30-line pay item still build', () => {
@@ -91,4 +92,66 @@ test('DUPA title names the pay item when a section has several, else the section
   const single = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
   assert.ok(single.includes('SMART CLIMATE: DETAILED UNIT PRICE ANALYSIS (EXHIBIT B)'));
   assert.ok(single.includes('TOTAL UNIT COST FOR SMART CLIMATE'));
+});
+
+test('client-facing order: cover, what is included, then BOQ, proforma, DUPA', () => {
+  const texts = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
+  const at = t => texts.findIndex(x => x === t);
+  assert.ok(at('SMART HOME PROPOSAL') >= 0, 'cover title');
+  assert.ok(at("WHAT'S INCLUDED") > at('SMART HOME PROPOSAL'));
+  assert.ok(at('BILL OF QUANTITIES (EXHIBIT A)') > at("WHAT'S INCLUDED"));
+});
+
+test('cover is clean: project, client and tier, no total', () => {
+  const q = fixture();
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  const cover = texts.slice(0, texts.indexOf("WHAT'S INCLUDED"));
+  for (const t of ['TEST HOME', 'MS. TEST OWNER', 'ELITE']) assert.ok(cover.includes(t), t);
+  assert.ok(!cover.some(t => /TOTAL INVESTMENT|₱/.test(t)), 'no total on the cover');
+});
+
+test("what's included: title + description per service, no numbers or prices", () => {
+  const texts = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
+  const page = texts.slice(texts.indexOf("WHAT'S INCLUDED"), texts.indexOf('BILL OF QUANTITIES'));
+  assert.ok(page.includes('Smart Climate: '), 'bold title with colon');
+  assert.ok(page.includes(aboutFor('SMART CLIMATE')), 'default climate description');
+  assert.ok(!page.some(t => /₱|\d+ ×|TOTAL INVESTMENT/.test(t)), 'no prices, counts or totals');
+  assert.ok(!page.some(t => /Existing Condition/i.test(t)), 'services without a description are left out');
+});
+
+test("what's included lists the General Requirements items: floorplan, mobilization, project management", () => {
+  const q = fixture();
+  const item = d => ({ ...structuredClone(q.services[0].payItems[0]), description: d });
+  q.services.unshift({ serviceId: 'gen', title: 'GENERAL REQUIREMENTS', order: 0, // no flag: quotes saved before it existed
+    payItems: ['Rendered Interactive Floorplan', 'Mobilization/Demobilization', 'Temporary Facilities', 'Project Management'].map(item) });
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  const page = texts.slice(texts.indexOf("WHAT'S INCLUDED"), texts.indexOf('BILL OF QUANTITIES'));
+  for (const t of ['Rendered Interactive Floorplan: ', 'Mobilization/Demobilization: ', 'Project Management: ']) assert.ok(page.includes(t), t);
+  assert.ok(!page.includes('Temporary Facilities: '), 'items without a description stay off');
+  assert.ok(page.includes(aboutFor('Project Management')));
+});
+
+test('a General Requirements item the client does not avail is left out of the whole PDF', () => {
+  const q = fixture();
+  const item = d => ({ ...structuredClone(q.services[0].payItems[0]), description: d });
+  q.services.unshift({ serviceId: 'gen', title: 'GENERAL REQUIREMENTS', order: 0,
+    payItems: [{ ...item('Rendered Interactive Floorplan'), enabled: false }, item('Project Management')] });
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  assert.ok(!texts.some(t => /Rendered Interactive Floorplan|RENDERED INTERACTIVE FLOORPLAN/.test(t)), 'no floorplan anywhere');
+  assert.ok(texts.includes('Project Management: '));
+});
+
+test("a service's own description overrides the default", () => {
+  const q = fixture();
+  q.services[0].about = 'Our own words about climate.';
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  assert.ok(texts.includes('Our own words about climate.'));
+  assert.ok(!texts.includes(aboutFor('SMART CLIMATE')));
+});
+
+test('company logo is used when set, and only then', () => {
+  const logo = 'data:image/png;base64,iVBORw0KGgo=';
+  const withLogo = walk(buildDocDefinition(fixture(), { ...DEFAULT_SETTINGS, company: { ...DEFAULT_SETTINGS.company, logo } }));
+  const without = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS));
+  assert.ok(withLogo.images > without.images);
 });

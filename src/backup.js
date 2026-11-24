@@ -41,6 +41,7 @@ function settingsOf(raw) {
   if ('company' in s) {
     const c = { ...obj(s.company) };
     if ('address' in c) c.address = Array.isArray(c.address) ? c.address.map(str) : str(c.address).split('\n');
+    if ('logo' in c) c.logo = signature(c.logo); // same rule as signatures: embedded PNG/JPEG only
     s.company = c;
   }
   if ('bank' in s && !Object.keys(obj(s.bank)).length) delete s.bank;

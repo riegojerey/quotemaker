@@ -17,7 +17,8 @@ Pick a tier or tick services, type device counts; labor follows the device count
 
 ### The PDF
 
-Bill of Quantities and Proforma Invoice, then one DUPA page per service, each with the preparer's signature.
+A cover page and a plain-language "What's included" page for the homeowner, then the Bill of Quantities,
+Proforma Invoice and one DUPA page per service, each with the preparer's signature. Add your logo in Settings.
 
 ![BOQ and DUPA pages of the generated PDF](screenshots/pdf-pages.png)
 

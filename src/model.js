@@ -44,16 +44,21 @@ export function snapshotPayItem(tpl, catalogue) {
   };
 }
 
+// On every quote whatever the tier (floorplan, mobilization, project management): flagged in Services & Tiers,
+// and General Requirements counts by default so existing templates need no setup.
+export const isAlways = svc => svc.always ?? /general requirements/i.test(svc.title || '');
+
 const snapshotService = (svc, catalogue) => ({
-  serviceId: svc.id, title: svc.title, order: svc.order,
+  serviceId: svc.id, title: svc.title, order: svc.order, about: svc.about ?? '', always: isAlways(svc),
   payItems: svc.payItems.map(p => snapshotPayItem(p, catalogue)),
 });
 const byOrder = (a, b) => (a.order ?? 0) - (b.order ?? 0);
 
-export function tierFor(serviceIds, tiers) {
-  const set = new Set(serviceIds);
+// `skip`: always-included service ids, which never decide the tier.
+export function tierFor(serviceIds, tiers, skip = []) {
+  const set = new Set(serviceIds.filter(id => !skip.includes(id)));
   if (!set.size) return 'Custom';
-  const t = tiers.find(t => t.serviceIds.length === set.size && t.serviceIds.every(id => set.has(id)));
+  const t = tiers.find(t => { const ids = t.serviceIds.filter(id => !skip.includes(id)); return ids.length === set.size && ids.every(id => set.has(id)); });
   return t ? t.name : 'Custom';
 }
 
@@ -80,7 +85,7 @@ export function buildQuote({ services, catalogue, settings, serviceIds, tierName
     client: { owner: '', address: '', project: '', email: '' },
     contractor: { enterprise: '', rep: '', contact: '', email: '' },
     generalContractor: '', conforme: { name: '', title: 'Owner' },
-    services: services.filter(s => serviceIds.includes(s.id)).sort(byOrder).map(s => snapshotService(s, catalogue)),
+    services: services.filter(s => serviceIds.includes(s.id) || isAlways(s)).sort(byOrder).map(s => snapshotService(s, catalogue)),
     remarks: '',
     paymentTerms: structuredClone(settings.paymentTerms),
     preparer: structuredClone(settings.preparer),
@@ -88,14 +93,18 @@ export function buildQuote({ services, catalogue, settings, serviceIds, tierName
   };
 }
 
+const tierOf = (services, tiers) => tierFor(services.map(s => s.serviceId), tiers, services.filter(isAlways).map(s => s.serviceId));
+
 export function addService(quote, service, catalogue, tiers) {
   const services = [...quote.services.filter(s => s.serviceId !== service.id), snapshotService(service, catalogue)].sort(byOrder);
-  return { ...quote, services, tierName: tierFor(services.map(s => s.serviceId), tiers) };
+  return { ...quote, services, tierName: tierOf(services, tiers) };
 }
 
 export function removeService(quote, serviceId, tiers) {
+  const svc = quote.services.find(s => s.serviceId === serviceId);
+  if (svc && isAlways(svc)) return quote;
   const services = quote.services.filter(s => s.serviceId !== serviceId);
-  return { ...quote, services, tierName: tierFor(services.map(s => s.serviceId), tiers) };
+  return { ...quote, services, tierName: tierOf(services, tiers) };
 }
 
 export function duplicateQuote(quote) {
@@ -105,7 +114,7 @@ export function duplicateQuote(quote) {
 
 // Clicking a tier: select exactly its services; services already on the quote keep their edits.
 export function applyTier(quote, tier, services, catalogue, tiers) {
-  const chosen = services.filter(s => tier.serviceIds.includes(s.id)).sort(byOrder)
+  const chosen = services.filter(s => tier.serviceIds.includes(s.id) || isAlways(s)).sort(byOrder)
     .map(s => quote.services.find(q => q.serviceId === s.id) ?? snapshotService(s, catalogue));
-  return { ...quote, services: chosen, tierName: tierFor(chosen.map(s => s.serviceId), tiers) };
+  return { ...quote, services: chosen, tierName: tierOf(chosen, tiers) };
 }

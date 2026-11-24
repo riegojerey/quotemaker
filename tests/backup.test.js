@@ -117,3 +117,9 @@ test('only embedded PNG/JPEG signatures survive a restore', () => {
     assert.equal(b.quotes[0].preparer.signature, null, String(bad));
   }
 });
+
+test('company logo survives restore only as an embedded image', () => {
+  const ok = 'data:image/png;base64,iVBORw0KGgo=';
+  assert.equal(parseBackup(base({ settings: { company: { logo: ok } } })).settings.company.logo, ok);
+  assert.equal(parseBackup(base({ settings: { company: { logo: 'https://x.example/l.png' } } })).settings.company.logo, null);
+});
