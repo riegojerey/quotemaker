@@ -3,8 +3,9 @@
 **Live app: https://riegojerey.github.io/quotemaker/**
 
 Smart home quotations for Exoid Robotics Home Automation Services. Tick services or pick a tier
-(Standard / Premium / Elite), type device counts, and download one signed PDF: Bill of Quantities,
-Proforma Invoice and a Detailed Unit Price Analysis (DUPA) page per service.
+(Standard / Premium / Elite), type device counts, and download one signed, client-ready PDF: a cover,
+a "What's included" page, the Bill of Quantities, Proforma Invoice and a Detailed Unit Price Analysis (DUPA)
+page per pay item.
 
 > Screenshots use made-up sample prices and a sample client.
 
@@ -13,12 +14,26 @@ Proforma Invoice and a Detailed Unit Price Analysis (DUPA) page per service.
 Pick a tier or tick services, type device counts; labor follows the device count automatically
 (edit it to override, ↺ to go back to auto). The grand total updates as you type.
 
+**General Requirements** (Rendered Interactive Floorplan, Mobilization/Demobilization, Project Management)
+is on every quote, whatever the tier. The floorplan is priced per square meter: type the house's floor area
+as its quantity. If the client does not avail an item, untick it on the quote: it is tagged *not availed*
+and left out of the totals and the whole PDF (the remaining items renumber).
+
 ![Quote editor](screenshots/quote-editor.png)
 
 ### The PDF
 
-A cover page and a plain-language "What's included" page for the homeowner, then the Bill of Quantities,
-Proforma Invoice and one DUPA page per service, each with the preparer's signature. Add your logo in Settings.
+Navy and orange on white, in this order, one page each:
+
+1. **Cover**: project, client, tier, preparer and dates (no prices).
+2. **What's included**: one short paragraph per service, written for the homeowner, with no numbers or prices.
+   Default texts are built in; change them per service under Services & Tiers → *Client description*.
+   General Requirements lists its items one by one.
+3. **Bill of Quantities** and **Proforma Invoice** (with payment terms and payment channel).
+4. **DUPA**: one page per pay item, with the CP,OCM breakdown.
+
+The BOQ, Proforma and DUPA pages carry the preparer's signature. Long quotes (16+ sections) use a tighter
+table so each section still fits on one page. Add your logo in Settings.
 
 ![BOQ and DUPA pages of the generated PDF](screenshots/pdf-pages.png)
 
@@ -38,7 +53,8 @@ Set what each tier includes, and each service's items, sizes, default quantities
 - **Catalogue**: selling prices. Items with sizes (Data Cabinet 4U / 6U / 12U) get one variant per size.
   Saved quotes keep the prices they were made with.
 - **Services & Tiers**: what each service contains, default quantities, which labor lines follow the device count,
-  and which services each tier ticks.
+  which services each tier ticks, each service's client description, and whether it is *always included*
+  in every quote (General Requirements is, by default).
 - **Quotes**: new, open, duplicate, delete. Download PDF from the quote.
 
 ## Your data stays in your browser
