@@ -1,8 +1,35 @@
 # Quote Maker
 
+**Live app: https://riegojerey.github.io/quotemaker/**
+
 Smart home quotations for Exoid Robotics Home Automation Services. Tick services or pick a tier
 (Standard / Premium / Elite), type device counts, and download one signed PDF: Bill of Quantities,
 Proforma Invoice and a Detailed Unit Price Analysis (DUPA) page per service.
+
+> Screenshots use made-up sample prices and a sample client.
+
+### Building a quote
+
+Pick a tier or tick services, type device counts; labor follows the device count automatically
+(edit it to override, ↺ to go back to auto). The grand total updates as you type.
+
+![Quote editor](screenshots/quote-editor.png)
+
+### The PDF
+
+Bill of Quantities and Proforma Invoice, then one DUPA page per service, each with the preparer's signature.
+
+![BOQ and DUPA pages of the generated PDF](screenshots/pdf-pages.png)
+
+### Services & tiers
+
+Set what each tier includes, and each service's items, sizes, default quantities and which labor lines follow which devices.
+
+![Services and tiers editor](screenshots/services-tiers.png)
+
+### On a phone
+
+<img src="screenshots/phone.png" alt="Quote editor on a phone" width="320">
 
 ## Using it
 
