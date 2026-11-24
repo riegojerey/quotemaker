@@ -119,6 +119,18 @@ test("what's included: title + description per service, no numbers or prices", (
   assert.ok(!page.some(t => /Existing Condition/i.test(t)), 'services without a description are left out');
 });
 
+test("what's included lists the General Requirements items: floorplan, mobilization, project management", () => {
+  const q = fixture();
+  const item = d => ({ ...structuredClone(q.services[0].payItems[0]), description: d });
+  q.services.unshift({ serviceId: 'gen', title: 'GENERAL REQUIREMENTS', order: 0, // no flag: quotes saved before it existed
+    payItems: ['Rendered Interactive Floorplan', 'Mobilization/Demobilization', 'Temporary Facilities', 'Project Management'].map(item) });
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  const page = texts.slice(texts.indexOf("WHAT'S INCLUDED"), texts.indexOf('BILL OF QUANTITIES'));
+  for (const t of ['Rendered Interactive Floorplan: ', 'Mobilization/Demobilization: ', 'Project Management: ']) assert.ok(page.includes(t), t);
+  assert.ok(!page.includes('Temporary Facilities: '), 'items without a description stay off');
+  assert.ok(page.includes(aboutFor('Project Management')));
+});
+
 test("a service's own description overrides the default", () => {
   const q = fixture();
   q.services[0].about = 'Our own words about climate.';

@@ -1,6 +1,6 @@
 import { esc, field, bindInputs, debounce, money, showValue, readInput } from './dom.js';
 import { mountTerms } from './settings.js';
-import { addService, removeService, applyTier, suggestCode, addMonths } from '../model.js';
+import { addService, removeService, applyTier, suggestCode, addMonths, isAlways } from '../model.js';
 import { quoteTotals, payItemTotals, lineQty, lineTotal, fmtNum, num } from '../calc.js';
 import { downloadPdf } from '../pdf.js';
 
@@ -117,7 +117,9 @@ export function render(main, ctx, id) {
       <div class="row" style="margin-bottom:10px">${tiers.map(t => `<button class="chip ${q.tierName === t.name ? 'on' : ''}" data-tier="${esc(t.id)}"
         ${t.serviceIds.length ? '' : 'disabled title="No services in this tier yet (Services & Tiers)"'}>${esc(t.name)}</button>`).join('')}
         <span class="muted">or tick services below (makes it Custom)</span></div>
-      <div class="checks">${[...services].sort((a, b) => a.order - b.order).map(s => `<label><input type="checkbox" data-svc="${esc(s.id)}" ${on.has(s.id) ? 'checked' : ''}> ${esc(s.title)}</label>`).join('')}
+      <div class="checks">${[...services].sort((a, b) => a.order - b.order).map(s => (isAlways(s)
+        ? `<label title="Always included (Services & Tiers)"><input type="checkbox" checked disabled> ${esc(s.title)} <span class="muted">(always)</span></label>`
+        : `<label><input type="checkbox" data-svc="${esc(s.id)}" ${on.has(s.id) ? 'checked' : ''}> ${esc(s.title)}</label>`)).join('')}
         ${q.services.filter(s => !services.some(x => x.id === s.serviceId)).map(s => `<label><input type="checkbox" data-svc="${esc(s.serviceId)}" checked> ${esc(s.title)} <span class="muted">(no longer in templates)</span></label>`).join('')}</div>`;
     main.querySelector('[data-tier-label]').textContent = q.tierName;
   };
@@ -125,7 +127,7 @@ export function render(main, ctx, id) {
     const b = e.target.closest('[data-tier]');
     if (!b) return;
     const tier = tiers.find(t => t.id === b.dataset.tier);
-    const leaving = q.services.filter(s => !tier.serviceIds.includes(s.serviceId));
+    const leaving = q.services.filter(s => !isAlways(s) && !tier.serviceIds.includes(s.serviceId));
     if (leaving.length && !confirm(`Switch to ${tier.name}? This removes: ${leaving.map(s => s.title).join(', ')}.`)) return;
     Object.assign(q, applyTier(q, tier, services, catalogue, tiers), { paymentTerms: q.paymentTerms });
     afterServicesChanged();

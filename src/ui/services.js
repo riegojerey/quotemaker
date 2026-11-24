@@ -1,6 +1,6 @@
 import { aboutFor } from '../about.js';
 import { esc, setPath, readInput, debounce, showValue } from './dom.js';
-import { newId, snapshotPayItem } from '../model.js';
+import { newId, snapshotPayItem, isAlways } from '../model.js';
 import { payItemTotals, fmtPeso } from '../calc.js';
 
 const KINDS = [['material', 'Materials'], ['labor', 'Labor'], ['equipment', 'Equipment']];
@@ -152,7 +152,9 @@ function mountDetail(el, svc, ctx) {
       <div class="card"><div class="spread">
         <label class="field" style="flex:1"><span>Service title (BOQ section)</span><input data-title value="${esc(svc.title)}"></label>
         <button class="danger" data-del-svc>Delete service</button></div>
-        <label class="field"><span>Client description ("What's included" page; blank uses the default${aboutFor(svc.title) ? '' : ' — none for this service, so it is left off'})</span>
+        <label class="row" style="margin:6px 0 10px"><input type="checkbox" data-always ${isAlways(svc) ? 'checked' : ''}>
+          Always included in every quote, whatever the tier (e.g. General Requirements: floorplan, mobilization, project management)</label>
+        <label class="field"><span>Client description ("What's included" page; blank uses the default${isAlways(svc) ? ', listed item by item' : aboutFor(svc.title) ? '' : ' — none for this service, so it is left off'})</span>
           <textarea data-about rows="3" placeholder="${esc(aboutFor(svc.title))}">${esc(svc.about ?? '')}</textarea></label></div>
       ${svc.payItems.map((p, i) => payItemHtml(p, i, catalogue)).join('')}
       <button class="ghost" data-add-pi>+ Add pay item</button>`;
@@ -170,6 +172,7 @@ function mountDetail(el, svc, ctx) {
     const t = e.target;
     if (t.matches('[data-title]')) { svc.title = t.value; return save(); }
     if (t.matches('[data-about]')) { svc.about = t.value; return save(); }
+    if (t.matches('[data-always]')) { svc.always = t.checked; return save(); }
     const pi = piOf(t);
     if (!pi) return;
     if (t.dataset.ppath) {

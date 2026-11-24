@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { newId, DEFAULT_SETTINGS, snapshotPayItem, buildQuote, addService, removeService, tierFor, suggestCode, duplicateQuote, addMonths, applyTier } from '../src/model.js';
+import { newId, DEFAULT_SETTINGS, snapshotPayItem, buildQuote, addService, removeService, tierFor, suggestCode, duplicateQuote, addMonths, applyTier, isAlways } from '../src/model.js';
 import { quoteTotals } from '../src/calc.js';
 
 const catalogue = [
@@ -106,4 +106,31 @@ test('quotes keep the service description from the template', () => {
   const svc = [{ ...services[1], about: 'Climate words' }];
   const q = buildQuote({ services: svc, catalogue, settings: DEFAULT_SETTINGS, serviceIds: ['climate'], tierName: 'Custom', today: '2026-10-23' });
   assert.equal(q.services[0].about, 'Climate words');
+});
+
+// General Requirements (floorplan, mobilization, project management) is on every quote, whatever the tier.
+const gen = { id: 'gen', title: 'GENERAL REQUIREMENTS', order: 0, payItems: [tpl('plan', 'sw', 'g1')] };
+const withGen = [gen, ...services];
+
+test('always-included services: General Requirements by title, or the always flag', () => {
+  assert.equal(isAlways(gen), true);
+  assert.equal(isAlways(services[0]), false);
+  assert.equal(isAlways({ ...services[0], always: true }), true);
+  assert.equal(isAlways({ ...gen, always: false }), false);
+});
+
+test('new quotes and tiers always include General Requirements, and the tier name still matches', () => {
+  const q = buildQuote({ services: withGen, catalogue, settings: DEFAULT_SETTINGS, serviceIds: [], tierName: 'Custom', today: '2026-11-24' });
+  assert.deepEqual(q.services.map(s => s.serviceId), ['gen']);
+  const t = applyTier(q, tiers[0], withGen, catalogue, tiers);
+  assert.deepEqual(t.services.map(s => s.serviceId), ['gen', 'climate', 'lighting']);
+  assert.equal(t.tierName, 'Premium');
+  const back = removeService(t, 'lighting', tiers);
+  assert.equal(back.tierName, 'Custom');
+  assert.equal(addService(back, services[0], catalogue, tiers).tierName, 'Premium');
+});
+
+test('General Requirements cannot be removed from a quote', () => {
+  const q = buildQuote({ services: withGen, catalogue, settings: DEFAULT_SETTINGS, serviceIds: ['climate'], tierName: 'Custom', today: '2026-11-24' });
+  assert.deepEqual(removeService(q, 'gen', tiers).services.map(s => s.serviceId), ['gen', 'climate']);
 });

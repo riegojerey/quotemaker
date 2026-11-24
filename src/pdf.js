@@ -2,6 +2,7 @@
 // cover → what's included → BOQ → Proforma Invoice → one DUPA per pay item. Tables keep the Casa layout.
 import { quoteTotals, lineQty, lineTotal, fmtNum, num } from './calc.js';
 import { aboutFor, aboutTitle } from './about.js';
+import { isAlways } from './model.js';
 
 // Brand: navy #1D3B5C (headings, table heads, totals, icon badges), orange #D9741A (small accents), white pages.
 const C = { navy: '#1D3B5C', orange: '#D9741A', soft: '#EAF0F6', warm: '#FBEFE3', zebra: '#F7F9FB', ink: '#1F2328', muted: '#667085', line: '#E3E8EE' };
@@ -55,7 +56,7 @@ const ICONS = {
 const ICON_RULES = [
   [/light|switch|lamp/i, 'bulb'], [/climate|aircon|\bac\b|hvac/i, 'climate'], [/lock|door/i, 'lock'],
   [/camera|cctv|surveillance/i, 'camera'], [/server|network|wifi|wi-fi/i, 'wifi'], [/cover|curtain|blind|shade/i, 'curtain'],
-  [/gate/i, 'gate'], [/presence|sensor|alarm|entry|security/i, 'shield'], [/voice|alexa|google|speaker/i, 'mic'],
+  [/mobili[sz]|management|supervis/i, 'tools'], [/gate/i, 'gate'], [/presence|sensor|alarm|entry|security/i, 'shield'], [/voice|alexa|google|speaker/i, 'mic'],
   [/panel|control|tablet|screen/i, 'panel'], [/film|glass|window/i, 'film'], [/wiring|electrical|requirement|condition|assessment/i, 'tools'],
 ];
 const iconFor = title => ICON_RULES.find(([re]) => re.test(title))?.[1] ?? 'house';
@@ -202,17 +203,20 @@ function coverPage(q, settings) {
 // One paragraph per included service: its own description, else the default for its kind. No counts or prices.
 function includedPage(q, totals) {
   const sections = [...new Set(totals.items.map(it => it.serviceIdx))].map(i => q.services[i]);
-  const entries = sections.map(svc => ({ svc, about: s(svc.about).trim() || aboutFor(svc.title) })).filter(e => e.about);
+  // Always-included services (General Requirements) list their own items: floorplan, mobilization, project management.
+  const entries = sections.flatMap(svc => (isAlways(svc) && !s(svc.about).trim()
+    ? svc.payItems.map(p => ({ svc, title: s(p.description), about: aboutFor(p.description) }))
+    : [{ svc, title: svc.title, about: s(svc.about).trim() || aboutFor(svc.title) }])).filter(e => e.about);
   const dense = entries.length > 8; // keep a full Elite list on one page
   return [
     { text: '', pageBreak: 'before' },
     sectionTitle("WHAT'S INCLUDED"),
     { text: `Your ${s(q.tierName)} smart home package.`, color: C.muted, margin: [0, -4, 0, dense ? 10 : 16] },
-    ...entries.map(({ svc, about }) => ({
+    ...entries.map(({ svc, title, about }) => ({
       unbreakable: true, margin: [0, 0, 0, dense ? 9 : 14], columnGap: 12,
       columns: [
-        { ...icon(iconFor(svc.title), dense ? 20 : 24), width: dense ? 20 : 24 },
-        { width: '*', fontSize: dense ? 8.6 : 9.5, lineHeight: 1.25, text: [{ text: `${aboutTitle(svc.title)}: `, bold: true, color: C.navy }, about] },
+        { ...icon(iconFor(title), dense ? 20 : 24), width: dense ? 20 : 24 },
+        { width: '*', fontSize: dense ? 8.6 : 9.5, lineHeight: 1.25, text: [{ text: `${isAlways(svc) ? title : aboutTitle(title)}: `, bold: true, color: C.navy }, about] },
       ],
     })),
   ];

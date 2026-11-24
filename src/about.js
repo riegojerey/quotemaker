@@ -1,6 +1,10 @@
 // Default client-facing descriptions for the "What's included" page, matched by service title.
 // A service's own description (Services & Tiers) always wins; services with neither are left off that page.
 const DEFAULTS = [
+  // General Requirements items (matched by pay item name)
+  [/floor\s*plan/i, "A custom, 3D-rendered interactive model of your home's floor plan, built from your house plans. It powers the control panel, so every light, aircon and device appears where it is in your home and can be seen and controlled at a glance."],
+  [/mobili[sz]ation/i, "Transport of our team, tools and equipment to and from your site for the duration of the installation, including the delivery of all smart home devices."],
+  [/project management/i, "A dedicated project supervisor manages the installation from start to finish: scheduling, coordination with your contractor and other trades, quality checks, and the final testing and turnover of the system."],
   [/presence/i, "Advanced sensors will be installed in key rooms and bathrooms. These sensors detect your presence, automatically turning on the lights when you enter a room and turning them off after you leave, offering hands-free convenience and ensuring energy is never wasted."],
   [/light/i, "Provides complete control over your home's lighting from anywhere via a smartphone or the control panel. This system enhances convenience and improves energy efficiency by allowing you to ensure lights are never left on unnecessarily."],
   [/climate|aircon|hvac/i, "Allows you to manage your home's temperature remotely, ensuring you always come home to a comfortable environment. You can set intelligent schedules that align with your lifestyle, maximizing comfort while optimizing energy consumption."],
