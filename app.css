@@ -1,7 +1,7 @@
 :root {
-  /* orange & white: --accent for fills/lines, --accent-ink for orange text and white-on-orange buttons (readable contrast) */
-  --bg: #fff; --card: #fff; --ink: #1f2328; --muted: #6b6f76; --line: #f0e4da;
-  --accent: #f26b1d; --accent-ink: #c2410c; --accent-soft: #fff1e8; --bad: #b42318; --good: #067647;
+  /* navy #1d3b5c is the main accent (buttons, text, highlights); orange #d9741a marks edges (top line, active tab, service cards) */
+  --bg: #fff; --card: #fff; --ink: #1f2328; --muted: #667085; --line: #e3e8ee;
+  --accent: #1d3b5c; --accent-ink: #1d3b5c; --accent-soft: #eaf0f6; --orange: #d9741a; --bad: #b42318; --good: #067647;
   --radius: 8px; font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -14,13 +14,13 @@ h3 { font-size: 14px; margin: 16px 0 8px; }
 .bad { color: var(--bad); font-weight: 600; }
 .good { color: var(--good); }
 
-.top { display: flex; align-items: center; gap: 24px; padding: 0 20px; background: #fff; color: var(--ink); border-top: 4px solid var(--accent); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; flex-wrap: wrap; }
+.top { display: flex; align-items: center; gap: 24px; padding: 0 20px; background: #fff; color: var(--ink); border-top: 4px solid var(--orange); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; flex-wrap: wrap; }
 .brand { font-weight: 700; padding: 14px 0; }
 .brand { color: var(--accent-ink); }
 .brand span { font-weight: 400; color: var(--muted); margin-left: 6px; }
 .top nav { display: flex; gap: 2px; flex: 1; overflow-x: auto; }
 .top nav a { color: var(--muted); font-weight: 500; text-decoration: none; padding: 16px 12px; border-bottom: 2px solid transparent; white-space: nowrap; }
-.top nav a.on, .top nav a:hover { color: var(--accent-ink); border-bottom: 2px solid var(--accent); }
+.top nav a.on, .top nav a:hover { color: var(--accent-ink); border-bottom: 2px solid var(--orange); }
 .top .io { display: flex; gap: 6px; }
 .top .io button { color: var(--ink); border-color: var(--line); }
 .top .io button:hover { border-color: var(--accent); color: var(--accent-ink); }
@@ -62,7 +62,7 @@ table.grid td.w-qty { width: 90px; } table.grid td.w-price { width: 120px; } tab
 
 .sig canvas { width: 100%; max-width: 600px; aspect-ratio: 3 / 1; border: 1px dashed #b8bec6; border-radius: 6px; background: #fff; touch-action: none; display: block; margin-bottom: 8px; }
 
-details.svc { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius); margin-bottom: 10px; }
+details.svc { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: var(--radius); margin-bottom: 10px; }
 details.svc > summary { padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; font-weight: 600; list-style: none; }
 details.svc > summary::after { content: '▸'; color: var(--muted); }
 details.svc[open] > summary::after { content: '▾'; }

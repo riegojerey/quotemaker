@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { buildDocDefinition, pdfFilename } from '../src/pdf.js';
 import { quoteTotals, fmtNum } from '../src/calc.js';
 import { DEFAULT_SETTINGS } from '../src/model.js';
+import { aboutFor } from '../src/about.js';
 
 // Collect every text string and node type in a pdfmake content tree.
 function walk(node, out = { texts: [], images: 0 }) {
@@ -101,20 +102,29 @@ test('client-facing order: cover, what is included, then BOQ, proforma, DUPA', (
   assert.ok(at('BILL OF QUANTITIES (EXHIBIT A)') > at("WHAT'S INCLUDED"));
 });
 
-test('cover shows project, client, tier and grand total', () => {
+test('cover is clean: project, client and tier, no total', () => {
   const q = fixture();
   const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
   const cover = texts.slice(0, texts.indexOf("WHAT'S INCLUDED"));
-  for (const t of ['TEST HOME', 'MS. TEST OWNER', 'ELITE', `₱${fmtNum(quoteTotals(q).grandTotal)}`]) assert.ok(cover.includes(t), t);
+  for (const t of ['TEST HOME', 'MS. TEST OWNER', 'ELITE']) assert.ok(cover.includes(t), t);
+  assert.ok(!cover.some(t => /TOTAL INVESTMENT|₱/.test(t)), 'no total on the cover');
 });
 
-test('what is included lists each service with device counts and remarks', () => {
+test("what's included: title + description per service, no numbers or prices", () => {
   const texts = walk(buildDocDefinition(fixture(), DEFAULT_SETTINGS)).texts;
-  assert.ok(texts.includes('10 × AC Controller'));
-  assert.ok(texts.includes('10 × Power Supply'));
-  assert.ok(!texts.some(t => /× Electrician/.test(t)), 'labor is not listed as a device');
-  assert.ok(texts.includes('Smart Climate in all ten (10) AC units'));
-  assert.ok(texts.includes('Property Assessment'));
+  const page = texts.slice(texts.indexOf("WHAT'S INCLUDED"), texts.indexOf('BILL OF QUANTITIES'));
+  assert.ok(page.includes('Smart Climate: '), 'bold title with colon');
+  assert.ok(page.includes(aboutFor('SMART CLIMATE')), 'default climate description');
+  assert.ok(!page.some(t => /₱|\d+ ×|TOTAL INVESTMENT/.test(t)), 'no prices, counts or totals');
+  assert.ok(!page.some(t => /Existing Condition/i.test(t)), 'services without a description are left out');
+});
+
+test("a service's own description overrides the default", () => {
+  const q = fixture();
+  q.services[0].about = 'Our own words about climate.';
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  assert.ok(texts.includes('Our own words about climate.'));
+  assert.ok(!texts.includes(aboutFor('SMART CLIMATE')));
 });
 
 test('company logo is used when set, and only then', () => {

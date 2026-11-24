@@ -45,7 +45,7 @@ export function snapshotPayItem(tpl, catalogue) {
 }
 
 const snapshotService = (svc, catalogue) => ({
-  serviceId: svc.id, title: svc.title, order: svc.order,
+  serviceId: svc.id, title: svc.title, order: svc.order, about: svc.about ?? '',
   payItems: svc.payItems.map(p => snapshotPayItem(p, catalogue)),
 });
 const byOrder = (a, b) => (a.order ?? 0) - (b.order ?? 0);

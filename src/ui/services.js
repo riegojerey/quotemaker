@@ -1,3 +1,4 @@
+import { aboutFor } from '../about.js';
 import { esc, setPath, readInput, debounce, showValue } from './dom.js';
 import { newId, snapshotPayItem } from '../model.js';
 import { payItemTotals, fmtPeso } from '../calc.js';
@@ -150,7 +151,9 @@ function mountDetail(el, svc, ctx) {
     el.innerHTML = `
       <div class="card"><div class="spread">
         <label class="field" style="flex:1"><span>Service title (BOQ section)</span><input data-title value="${esc(svc.title)}"></label>
-        <button class="danger" data-del-svc>Delete service</button></div></div>
+        <button class="danger" data-del-svc>Delete service</button></div>
+        <label class="field"><span>Client description ("What's included" page; blank uses the default${aboutFor(svc.title) ? '' : ' — none for this service, so it is left off'})</span>
+          <textarea data-about rows="3" placeholder="${esc(aboutFor(svc.title))}">${esc(svc.about ?? '')}</textarea></label></div>
       ${svc.payItems.map((p, i) => payItemHtml(p, i, catalogue)).join('')}
       <button class="ghost" data-add-pi>+ Add pay item</button>`;
   };
@@ -166,6 +169,7 @@ function mountDetail(el, svc, ctx) {
   el.addEventListener('input', e => {
     const t = e.target;
     if (t.matches('[data-title]')) { svc.title = t.value; return save(); }
+    if (t.matches('[data-about]')) { svc.about = t.value; return save(); }
     const pi = piOf(t);
     if (!pi) return;
     if (t.dataset.ppath) {

@@ -101,3 +101,9 @@ test('applyTier selects exactly the tier services and keeps edits on ones alread
   assert.equal(q.services[0].payItems[0].lines[0].qty, 3);
   assert.equal(q.tierName, 'Premium');
 });
+
+test('quotes keep the service description from the template', () => {
+  const svc = [{ ...services[1], about: 'Climate words' }];
+  const q = buildQuote({ services: svc, catalogue, settings: DEFAULT_SETTINGS, serviceIds: ['climate'], tierName: 'Custom', today: '2026-10-23' });
+  assert.equal(q.services[0].about, 'Climate words');
+});
