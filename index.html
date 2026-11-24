@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quote Maker · Exoid Robotics</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Quote Maker <span>Exoid Robotics</span></div>
+    <nav>
+      <a href="#/quotes" data-nav="quotes">Quotes</a>
+      <a href="#/catalogue" data-nav="catalogue">Catalogue</a>
+      <a href="#/services" data-nav="services">Services &amp; Tiers</a>
+      <a href="#/settings" data-nav="settings">Settings</a>
+    </nav>
+    <div class="io">
+      <button id="backup" class="ghost">Backup</button>
+      <button id="restore" class="ghost">Restore</button>
+      <input id="restore-file" type="file" accept="application/json,.json" hidden>
+    </div>
+  </header>
+  <main id="main"></main>
+
+  <dialog id="backup-dialog">
+    <form method="dialog">
+      <h3>Download backup</h3>
+      <p class="muted">Send this file to a coworker so they get the same prices, services and tiers.</p>
+      <label><input type="checkbox" name="quotes"> Include quotes (client details)</label>
+      <label><input type="checkbox" name="signature"> Include my name &amp; signature</label>
+      <div class="row end"><button value="cancel" class="ghost">Cancel</button><button value="ok">Download</button></div>
+    </form>
+  </dialog>
+  <dialog id="restore-dialog">
+    <form method="dialog">
+      <h3>Restore backup</h3>
+      <p class="muted" id="restore-summary"></p>
+      <label><input type="radio" name="mode" value="merge" checked> <span><b>Merge</b>: add and update prices, services, tiers and any quotes in the file. My settings stay.</span></label>
+      <label><input type="radio" name="mode" value="replace"> <span><b>Replace</b> my prices, services, tiers and settings with the file's. My quotes and my name &amp; signature are kept.</span></label>
+      <div class="row end"><button value="cancel" class="ghost">Cancel</button><button value="ok">Restore</button></div>
+    </form>
+  </dialog>
+
+  <script src="vendor/pdfmake.min.js"></script>
+  <script src="vendor/vfs_fonts.js"></script>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

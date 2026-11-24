@@ -1,0 +1,5 @@
+*.xlsx
+private/
+node_modules/
+.superpowers/
+docs/
