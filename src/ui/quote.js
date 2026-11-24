@@ -175,7 +175,7 @@ export function render(main, ctx, id) {
       <td class="n" data-lt>${fmtNum(lineTotal(l, p.lines))}</td></tr>`;
   };
   const payItemHtml = (svcI, p, piI) => `<div class="payitem ${p.enabled === false ? 'off' : ''}" data-pi="${svcI}.${piI}">
-      <div class="spread"><label class="row"><input type="checkbox" data-enabled ${p.enabled === false ? '' : 'checked'}> <b>${esc(p.description)}</b>
+      <div class="spread"><label class="row" title="Untick if the client does not avail this; it is left out of the totals and the PDF"><input type="checkbox" data-enabled ${p.enabled === false ? '' : 'checked'}> <b>${esc(p.description)}</b>
         <span class="muted">${esc(p.um)}</span></label>
         ${p.lumpSum ? '' : `<label class="row muted">CP,OCM % <input class="n" data-cp data-type="pct" inputmode="decimal" value="${showValue(p.cpOcm, 'pct')}" style="width:70px"></label>`}
         <b data-pt>${money(payItemTotals(p).total)}</b></div>

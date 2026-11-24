@@ -205,7 +205,7 @@ function includedPage(q, totals) {
   const sections = [...new Set(totals.items.map(it => it.serviceIdx))].map(i => q.services[i]);
   // Always-included services (General Requirements) list their own items: floorplan, mobilization, project management.
   const entries = sections.flatMap(svc => (isAlways(svc) && !s(svc.about).trim()
-    ? svc.payItems.map(p => ({ svc, title: s(p.description), about: aboutFor(p.description) }))
+    ? svc.payItems.filter(p => p.enabled !== false).map(p => ({ svc, title: s(p.description), about: aboutFor(p.description) }))
     : [{ svc, title: svc.title, about: s(svc.about).trim() || aboutFor(svc.title) }])).filter(e => e.about);
   const dense = entries.length > 8; // keep a full Elite list on one page
   return [

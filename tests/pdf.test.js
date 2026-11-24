@@ -131,6 +131,16 @@ test("what's included lists the General Requirements items: floorplan, mobilizat
   assert.ok(page.includes(aboutFor('Project Management')));
 });
 
+test('a General Requirements item the client does not avail is left out of the whole PDF', () => {
+  const q = fixture();
+  const item = d => ({ ...structuredClone(q.services[0].payItems[0]), description: d });
+  q.services.unshift({ serviceId: 'gen', title: 'GENERAL REQUIREMENTS', order: 0,
+    payItems: [{ ...item('Rendered Interactive Floorplan'), enabled: false }, item('Project Management')] });
+  const texts = walk(buildDocDefinition(q, DEFAULT_SETTINGS)).texts;
+  assert.ok(!texts.some(t => /Rendered Interactive Floorplan|RENDERED INTERACTIVE FLOORPLAN/.test(t)), 'no floorplan anywhere');
+  assert.ok(texts.includes('Project Management: '));
+});
+
 test("a service's own description overrides the default", () => {
   const q = fixture();
   q.services[0].about = 'Our own words about climate.';

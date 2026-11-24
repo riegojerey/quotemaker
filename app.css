@@ -114,3 +114,4 @@ details.svc > summary [data-st] { margin-left: auto; }
 .logo-preview img { max-height: 70px; max-width: 260px; }
 input[type=checkbox], input[type=radio] { accent-color: var(--accent); }
 a { color: var(--accent-ink); }
+.payitem.off > .spread > label.row:first-child::after { content: "not availed"; font-size: 11px; padding: 1px 8px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 700; }
