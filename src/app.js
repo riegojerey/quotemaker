@@ -31,6 +31,7 @@ const ctx = {
 async function route() {
   await flushAll(); // pending edits from the view we are leaving land before we reload
   data = await loadAll();
+  if (!data.catalogue.length && !data.services.length) data = await seedDefaults(data);
   const [, name = 'quotes', id] = location.hash.replace(/^#/, '').split('/');
   const view = VIEWS[name] ?? quotesView;
   document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('on', a.dataset.nav === (name === 'quote' ? 'quotes' : name)));
@@ -43,6 +44,20 @@ async function route() {
   } catch (e) {
     console.error(e);
     main.innerHTML = `<div class="card error">Something went wrong: ${esc(e.message)}</div>`;
+  }
+}
+// First visit: load the company's services and prices (defaults.json) so nobody starts from an empty app.
+// shortcut: also re-seeds if someone deletes every service and catalogue item; add a "seeded" flag if that matters.
+async function seedDefaults(current) {
+  try {
+    const r = await fetch('defaults.json', { cache: 'no-cache' });
+    if (!r.ok) return current;
+    const merged = mergeBackup(current, parseBackup(await r.text()), 'merge');
+    await replaceAll(merged);
+    return merged;
+  } catch (e) {
+    console.warn('Could not load built-in prices', e);
+    return current; // offline or file missing: the app still works empty
   }
 }
 addEventListener('hashchange', route);

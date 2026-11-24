@@ -57,17 +57,28 @@ Set what each tier includes, and each service's items, sizes, default quantities
   in every quote (General Requirements is, by default).
 - **Quotes**: new, open, duplicate, delete. Download PDF from the quote.
 
+## Built-in services and prices
+
+The first time the app opens in a browser, it loads Exoid's services and selling prices from
+[`defaults.json`](defaults.json) (catalogue, 16 services, tiers). From then on that browser keeps its own copy:
+edits you make stay yours, and later changes to `defaults.json` do not overwrite them (use **Restore → Merge**
+with a backup to take new prices). `defaults.json` is public; it holds no quotes, clients, signatures or contact details.
+
+To update the built-in prices: in the app, **Backup** (quotes and signature unticked), then copy its `catalogue`,
+`services` and `tiers` into `defaults.json` and commit.
+
 ## Your data stays in your browser
 
-Nothing is sent anywhere. Prices, quotes and your signature live in this browser only; clearing browser data
-deletes them. Use **Backup** to download a file, and **Restore** to load one:
+Nothing is sent anywhere. Quotes, edited prices and your signature live in this browser only; clearing browser data
+deletes them (the built-in prices load again). Use **Backup** to download a file, and **Restore** to load one:
 
 - To share prices and templates with a coworker, send them a backup (leave "quotes" and "signature" unticked);
   they **Restore → Merge** and keep their own settings.
 - Keep a backup with quotes ticked somewhere safe.
 
-The app ships with no prices and no phone, email or bank account number: fill those in **Settings** once,
-then share them with a backup (coworkers choose **Restore → Replace** to take your settings). Never commit backup files, workbooks or anything in `private/` to this repo.
+The app ships with no phone, email or bank account number: fill those in **Settings** once,
+then share them with a backup (coworkers choose **Restore → Replace** to take your settings). Never commit quotes,
+backup files with quotes, workbooks or anything in `private/` to this repo.
 
 ## Development
 
